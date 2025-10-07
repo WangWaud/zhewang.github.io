@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhe Wang Online Curriculum Vitae</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <style>
+        :root {
+            --primary: #3498db;
+            --primary-dark: #2980b9;
+            --secondary: #2c3e50;
+            --light: #f8f9fa;
+            --text: #333;
+            --text-light: #7f8c8d;
+            --border: #eee;
+            --shadow-sm: 0 3px 10px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        /* Base styles with modern reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            color: var(--text);
+            text-align: justify;
+        }
+        
+        /* Container styles */
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            background-color: white;
+            box-shadow: var(--shadow-md);
+            border-radius: 12px;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Header styles */
+        header {
+            background: linear-gradient(135deg, var(--secondary), var(--primary), var(--primary-dark));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+            font-weight: 300;
+        }
+        
+        .contact-info {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            animation: fadeIn 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .contact-info, .contact-info p, .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            opacity: 0.9;
+        }
+        
+        .contact-info a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        
+        .links a {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .links a:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* Content styles */
+        .content {
+            padding: 2.5rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 2rem;
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        /* Staggered animation delays */
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+        .section:nth-child(7) { animation-delay: 0.7s; }
+        .section:nth-child(8) { animation-delay: 0.8s; }
+        
+        h2 {
+            color: var(--secondary);
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            font-size: 1.8rem;
+        }
+        
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 70%;
+            background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
+            border-radius: 2px;
+        }
+        
+        p {
+            line-height: 1.8;
+            color: #000000;
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.2s;
+            position: relative;
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
+        }
+        
+        a:not(.links a):not(.contact-info a)::after,
+        .highlight-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        a:not(.links a):not(.contact-info a):hover::after,
+        .highlight-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Card styles */
+        .education-item, .experience-item {
+            margin-bottom: 2rem;
+            padding: 1.8rem;
+            background: var(--light);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .education-item:last-child, .experience-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .education-item:hover, .experience-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .education-item h3, .experience-item h3 {
+            margin-top: 0;
+            color: var(--secondary);
+            font-weight: 500;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .date {
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+        }
+        
+        /* Skills section */
+        .skills-list ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+        
+        .skills-list li {
+            margin-bottom: 0.7rem;
+            padding: 0.5rem;
+            text-align: left;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .skills-list li:hover {
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: 4px;
+        }
+        
+        /* 移除了进度条相关样式 */
+        
+        /* Publications and Awards */
+        .publications ol {
+            padding-left: 1.5rem;
+        }
+        
+        .awards ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+        
+        .publications li, .awards li {
+            margin-bottom: 0.8rem;
+            padding: 0.5rem;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .publications li:hover, .awards li:hover {
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: 4px;
+        }
+        
+        .publications li {
+            margin-bottom: 0.8rem;
+            padding: 0.5rem;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+            
+            header {
+                padding: 2rem 1rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .content {
+                padding: 1.5rem;
+            }
+            
+            .links {
+                flex-direction: column;
+            }
+            
+            .links a {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .education-item, .experience-item {
+                padding: 1.2rem;
+            }
+        }
+        
+        /* Utility classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-0 {
+            margin-bottom: 0;
+        }
+        
+        .mt-2 {
+            margin-top: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--light);
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" as="style">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Zhe Wang</h1>
+            <div class="subtitle">Ph.D. Student in Plant Pathology</div>
+            <div class="subtitle">Plant-Pathogen-Microbiome Interactions Researcher</div>
+            <div class="contact-info">
+                <p>📧 <a href="mailto:zhewang@webmail.hzau.edu.cn">zhewang@webmail.hzau.edu.cn</a> | 
+                🎂 September 9th, 2000</p>
+                <div class="links">
+                    <a href="https://scholar.google.com/citations?user=haQqxp4AAAAJ&hl=en" target="_blank">🎓 Google Scholar</a>
+                    <a href="https://orcid.org/0000-0003-3561-0354" target="_blank">🔬 ORCID</a>
+                    <a href="https://wangwaud.bsky.social" target="_blank">🦋 BlueSky</a>
+                    <a href="https://x.com/WangWaud" target="_blank">🐦 X (Twitter)</a>
+                    <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3OTU5NTQxMA==&action=getalbum&album_id=1974807553029046274#wechat_redirect" target="_blank">📱 WeChat Official Account</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <section class="section">
+                <h2>About Me</h2>
+                <p>I'm now a Ph.D. student in Kenichi Tsuda lab at Huazhong Agricultural University, specializing in plant pathology with a focus on plant-pathogen-microbiome interactions and phyllosphere microbiome research. My work combines multi-omics approaches to understand the molecular mechanisms of plant microbiome-mediated plant protection.</p>
+                <p>Moreover, I share my research experience and ideas in WeChat Official Account.</p>
+            </section>
+
+            <section class="section">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <h3>Ph.D. in Plant Pathology</h3>
+                    <div class="date">September 2022 – Present</div>
+                    <p><strong>Huazhong Agricultural University</strong>, Wuhan, China</p>
+                    <p><strong>Supervisor:</strong> <a href="https://faculty.hzau.edu.cn/KENICHITSUDA/zh_CN/index.htm" target="_blank">Dr. Kenichi Tsuda</a></p>
+                </div>
+                <div class="education-item">
+                    <h3>B.S. in Plant Protection</h3>
+                    <div class="date">September 2018 – June 2022</div>
+                    <p><strong>Huazhong Agricultural University</strong>, Wuhan, China</p>
+                    <p><strong>Supervisor:</strong> <a href="https://bbrc.hbut.edu.cn/info/1010/1011.htm" target="_blank">Dr. Liangcai Peng</a></p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Research Experience</h2>
+                <div class="experience-item">
+                    <h3>Graduate Research Project</h3>
+                    <div class="date">September 2022 – Present</div>
+                    <p><strong>Title:</strong> Multi-omics reveal the interactions among maize, fungal pathogen Bipolaris maydis, and microbiome</p>
+                    <p><strong>Supervisor:</strong> <a href="https://faculty.hzau.edu.cn/KENICHITSUDA/zh_CN/index.htm" target="_blank">Dr. Kenichi Tsuda</a></p>
+                    <p><strong>Abstract:</strong> This research utilizes the maize-<em>Bipolaris maydis</em>-microbiome interaction system, aiming to reveal the molecular mechanisms of plant microbiome-mediated plant protection/pathogen promotion through metagenomics, transcriptomics, metabolomics as well as synthetic community.</p>
+                    <p><em>Part of the National Key R&D Program of China (Project ID: SQ2022YFA1300114)</em></p>
+                </div>
+                <div class="experience-item">
+                    <h3>Undergraduate Research Project</h3>
+                    <div class="date">September 2018 – June 2022</div>
+                    <p><strong>Title:</strong> Development of bioethanol detection type yeast sensor</p>
+                    <p><strong>Supervisor:</strong> <a href="https://bbrc.hbut.edu.cn/info/1010/1011.htm" target="_blank">Dr. Liangcai Peng</a></p>
+                    <p><strong>Abstract:</strong> Energy shortages and environmental pollution highlight the need for renewable energy. This project identified eight ethanol-specific inducible promoters (<em>pESN1-8</em>) in <em>Pichia pastoris</em> via RNA-seq, creating a "sensing yeast" that provides a basis for high-throughput ethanol detection and genetic improvement of ethanol-producing yeast.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Publications</h2>
+                <div class="publications">
+                    <h3>2025</h3>
+                    <ol>
+                        <li><strong>Wang Z</strong>, Yin JK, Tsuda K*. <a href="https://link.springer.com/10.1007/s44297-025-00046-3" target="_blank" class="highlight-link">Harnessing <em>Aspergillus</em> and host M genes for sustainable phyllosphere microbiome engineering</a>. <strong><em>Crop Health</em></strong>, 3(1):6 (2025). [Comment]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://mp.weixin.qq.com/s/zPv7ltqwml9keb6qbUSSig" target="_blank">🇨🇳 Chinese version</a></li>
+                    </ol>
+                    
+                    <h3>2024</h3>
+                    <ol>
+                        <li>Nakagami S#, <strong>Wang Z#</strong>, Han XW, Tsuda K*. <a href="https://www.annualreviews.org/content/journals/10.1146/annurev-phyto-010824-023359" target="_blank" class="highlight-link">Regulation of bacterial growth and behavior by host plant</a>. <strong><em>Annu. Rev. Phytopathol.</em></strong>, 62:12.1-12.28 (2024). [Review]<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://mp.weixin.qq.com/s/PlD93wUDQjNrvOR1R5VNVA" target="_blank">🇨🇳 Chinese version</a></li>
+                        <li>Jian Y, Gong D, <strong>Wang Z</strong>, Liu L, He J, Han X, Tsuda K*. <a href="https://www.embopress.org/doi/full/10.1038/s44319-023-00023-3" target="_blank" class="highlight-link">How plants manage pathogen infection</a>. <strong><em>EMBO Reports</em></strong>, 25:31-44 (2024). [Review]</li>
+                    </ol>
+                    <p><em>*corresponding author, #co-first author</em></p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Skills</h2>
+                <div class="skills-list">
+                    <ul>
+                        <li>
+                            🔬 <strong>Research</strong>: Critical thinking, Qualified scientific writing, Logical presentation
+                        </li>
+                        <li>
+                            💻 <strong>Bioinformatics</strong>: Shell & R; RNA-seq, scRNA-seq, Amplicon, Metagenome analysis
+                        </li>
+                        <li>
+                            🎨 <strong>Visualization</strong>: BioRender, Rstudio, Adobe Illustrator, PhotoShop
+                        </li>
+                        <li>
+                            🧪 <strong>Experimental</strong>: Microbe isolation and culture, Molecular cloning, Vector construction, Yeast genetic transformation, qPCR, Optical microscope
+                        </li>
+                        <li>
+                            🌐 <strong>Languages</strong>: Chinese (native), English (CET6: 483, professional)
+                        </li>
+                        <li>
+                            ⚙️ <strong>Others</strong>: Server management, Paper management (Zotero), Logo & Website design, New media operation (150+ original content posts)
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Honors & Awards</h2>
+                <div class="awards">
+                    <ul>
+                        <li>2024: Third Prize in Graduate Students Academic Competition</li>
+                        <li>2023-2024: Outstanding Graduate Student Leader (HZAU)</li>
+                        <li>2023-2024: Outstanding Graduate Student (HZAU)</li>
+                        <li>2024: First Prize in the "Paper of the Month" (HZAU)</li>
+                        <li>2022-2023: Outstanding Graduate Student (HZAU)</li>
+                        <li>2022, 2023: Master's Degree First-Class Scholarship (HZAU)</li>
+                        <li>2022: Outstanding Graduate (HZAU)</li>
+                        <li>2018-2022: Outstanding Student (HZAU) - 4 times</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Academic Service</h2>
+                <div class="awards">
+                    <ul>
+                        <li>2025: Budding editor, <em>Plant & Cell Physiology</em></li>
+                        <li>2025: Reviewer for <em>PNAS</em>, <em>Plant & Cell Physiology</em> (2 times), <em>Plant Biotechnology</em></li>
+                        <li>2024: Co-reviewer, <em>Current Biology</em></li>
+                        <li>2023: Co-reviewer, <em>The Plant Cell</em>, <em>Nature Communications</em></li>
+                        <li>2022: Co-reviewer, <em>Nucleic Acids Research</em>; Teaching assistant for Biostatistics (Online), Dr. Fumiaki Katagiri</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Conference Presentations</h2>
+                <div class="awards">
+                    <ul>
+                        <li>Oct 2024: The 7th International Conference on Biotic Plant Interactions (Poster), Hangzhou, China</li>
+                        <li>Aug 2024: Asian Congress of Plant Pathology (Poster), Changchun, China</li>
+                        <li>Aug 2023: Methods In Plant Sciences, Online</li>
+                        <li>Aug 2023: Annual Meeting of the Plant Pathology, Taian, China</li>
+                        <li>Apr 2023: National Academic Annual Meeting of the Chinese Society of Plant Physiology and Molecular Biology, Wuhan, China</li>
+                        <li>Dec 2021: National Congress of Plant Biology, Chengdu, China</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        
+        <footer>
+            © 2025 Zhe Wang | Last updated: October 7, 2025
+        </footer>
+    </div>
+
+    <script>
+        // 移除了技能进度条动画相关的脚本
+    </script>
+</body>
+</html>

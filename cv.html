@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhe Wang | Scientific CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <style>
+        :root {
+            --primary: #3498db;
+            --primary-dark: #2980b9;
+            --secondary: #2c3e50;
+            --light: #f8f9fa;
+            --text: #333;
+            --text-light: #7f8c8d;
+            --border: #eee;
+            --shadow-sm: 0 3px 10px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: var(--text);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            background-color: white;
+            box-shadow: var(--shadow-md);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--secondary), var(--primary), var(--primary-dark));
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            margin-top: 0.6rem;
+            font-size: 1.1rem;
+            opacity: 0.92;
+        }
+
+        .top-links {
+            margin-top: 1.2rem;
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .top-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.65rem 1rem;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.12);
+        }
+
+        .content {
+            padding: 2.5rem;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1.8rem;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        h2 {
+            color: var(--secondary);
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.7rem;
+        }
+
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 70%;
+            background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
+            border-radius: 2px;
+        }
+
+        p {
+            color: #000;
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .education-item, .experience-item {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: var(--light);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary);
+        }
+
+        .education-item h3, .experience-item h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .date {
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+        }
+
+        .publications ol,
+        .awards ul,
+        .skills-list ul {
+            padding-left: 1.5rem;
+        }
+
+        .skills-list li,
+        .publications li,
+        .awards li {
+            margin-bottom: 0.75rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--light);
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .content {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Zhe Wang</h1>
+            <div class="subtitle">Scientific CV</div>
+            <div class="top-links">
+                <a href="index.html">← Back to Homepage</a>
+                <a href="https://scholar.google.com/citations?user=haQqxp4AAAAJ&hl=en" target="_blank">Google Scholar</a>
+                <a href="https://orcid.org/0000-0003-3561-0354" target="_blank">ORCID</a>
+            </div>
+        </header>
+
+        <div class="content">
+            <section class="section">
+                <h2>Education</h2>
+                <div class="education-item">
+                    <h3>Ph.D. in Plant Pathology</h3>
+                    <div class="date">September 2022 – Present</div>
+                    <p><strong>Huazhong Agricultural University</strong>, Wuhan, China</p>
+                    <p><strong>Supervisor:</strong> <a href="https://faculty.hzau.edu.cn/KENICHITSUDA/zh_CN/index.htm" target="_blank">Dr. Kenichi Tsuda</a></p>
+                </div>
+                <div class="education-item">
+                    <h3>B.S. in Plant Protection</h3>
+                    <div class="date">September 2018 – June 2022</div>
+                    <p><strong>Huazhong Agricultural University</strong>, Wuhan, China</p>
+                    <p><strong>Supervisor:</strong> <a href="https://bbrc.hbut.edu.cn/info/1010/1011.htm" target="_blank">Dr. Liangcai Peng</a></p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Research Experience</h2>
+                <div class="experience-item">
+                    <h3>Graduate Research Project</h3>
+                    <div class="date">September 2022 – Present</div>
+                    <p><strong>Title:</strong> Multi-omics reveal the interactions among maize, fungal pathogen Bipolaris maydis, and microbiome</p>
+                    <p><strong>Supervisor:</strong> <a href="https://faculty.hzau.edu.cn/KENICHITSUDA/zh_CN/index.htm" target="_blank">Dr. Kenichi Tsuda</a></p>
+                    <p><strong>Abstract:</strong> This research utilizes the maize-<em>Bipolaris maydis</em>-microbiome interaction system, aiming to reveal the molecular mechanisms of plant microbiome-mediated plant protection/pathogen promotion through metagenomics, transcriptomics, metabolomics as well as synthetic community.</p>
+                    <p><em>Part of the National Key R&D Program of China (Project ID: SQ2022YFA1300114)</em></p>
+                </div>
+                <div class="experience-item">
+                    <h3>Undergraduate Research Project</h3>
+                    <div class="date">September 2018 – June 2022</div>
+                    <p><strong>Title:</strong> Development of bioethanol detection type yeast sensor</p>
+                    <p><strong>Supervisor:</strong> <a href="https://bbrc.hbut.edu.cn/info/1010/1011.htm" target="_blank">Dr. Liangcai Peng</a></p>
+                    <p><strong>Abstract:</strong> Energy shortages and environmental pollution highlight the need for renewable energy. This project identified eight ethanol-specific inducible promoters (<em>pESN1-8</em>) in <em>Pichia pastoris</em> via RNA-seq, creating a "sensing yeast" that provides a basis for high-throughput ethanol detection and genetic improvement of ethanol-producing yeast.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Publications</h2>
+                <div class="publications">
+                    <h3>2026</h3>
+                    <ol>
+                        <li><strong>Wang Z*</strong>. <a href="https://doi.org/10.1093/pcp/pcag004" target="_blank">Living with the enemy: plants outsource their defense to fungal gatekeepers</a>. <strong><em>Plant and Cell Physiology</em></strong>, pcag004 (2026). [Commentary Article]<br>
+                        <a href="https://mp.weixin.qq.com/s/lnbH_C1dzEu26wRFkT6M2g" target="_blank">🇨🇳 Chinese version</a></li>
+                    </ol>
+
+                    <h3>2025</h3>
+                    <ol>
+                        <li><strong>Wang Z</strong>, Yin JK, Tsuda K*. <a href="https://link.springer.com/10.1007/s44297-025-00046-3" target="_blank">Harnessing <em>Aspergillus</em> and host M genes for sustainable phyllosphere microbiome engineering</a>. <strong><em>Crop Health</em></strong>, 3(1):6 (2025). [Commentary Article]<br>
+                        <a href="https://mp.weixin.qq.com/s/zPv7ltqwml9keb6qbUSSig" target="_blank">🇨🇳 Chinese version</a></li>
+                    </ol>
+
+                    <h3>2024</h3>
+                    <ol>
+                        <li>Nakagami S#, <strong>Wang Z#</strong>, Han XW, Tsuda K*. <a href="https://www.annualreviews.org/content/journals/10.1146/annurev-phyto-010824-023359" target="_blank">Regulation of bacterial growth and behavior by host plant</a>. <strong><em>Annu. Rev. Phytopathol.</em></strong>, 62:12.1-12.28 (2024). [Review]<br>
+                        <a href="https://mp.weixin.qq.com/s/PlD93wUDQjNrvOR1R5VNVA" target="_blank">🇨🇳 Chinese version</a></li>
+                        <li>Jian Y, Gong D, <strong>Wang Z</strong>, Liu L, He J, Han X, Tsuda K*. <a href="https://www.embopress.org/doi/full/10.1038/s44319-023-00023-3" target="_blank">How plants manage pathogen infection</a>. <strong><em>EMBO Reports</em></strong>, 25:31-44 (2024). [Review]</li>
+                    </ol>
+                    <p><em>*corresponding author, #co-first author</em></p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Skills</h2>
+                <div class="skills-list">
+                    <ul>
+                        <li><strong>Methods</strong>: Amplicon sequencing analysis, metagenomics, RNA-seq, scRNA-seq, and multi-omics data interpretation</li>
+                        <li><strong>Computational Tools</strong>: R, Shell, reproducible analysis workflows, data visualization, and figure preparation</li>
+                        <li><strong>Experimental Systems</strong>: Microbe isolation and culture, molecular cloning, vector construction, yeast transformation, qPCR, and microscopy</li>
+                        <li><strong>Scientific Communication</strong>: Scientific writing, visual abstract and figure design, oral presentation, and research commentary</li>
+                        <li><strong>Languages</strong>: Chinese (native) and English (professional working proficiency)</li>
+                        <li><strong>Research Support</strong>: Server management, Zotero-based paper management, website design, and science communication through new media</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Honors & Awards</h2>
+                <div class="awards">
+                    <ul>
+                        <li>2024-2025: Outstanding Graduate Student (HZAU)</li>
+                        <li>2024: Third Prize in Graduate Students Academic Competition</li>
+                        <li>2023-2024: Outstanding Graduate Student Leader (HZAU)</li>
+                        <li>2023-2024: Outstanding Graduate Student (HZAU)</li>
+                        <li>2024: First Prize in the "Paper of the Month" (HZAU)</li>
+                        <li>2022-2023: Outstanding Graduate Student (HZAU)</li>
+                        <li>2022, 2023: Master's Degree First-Class Scholarship (HZAU)</li>
+                        <li>2022: Outstanding Graduate (HZAU)</li>
+                        <li>2018-2022: Outstanding Student (HZAU) - 4 times</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Academic Service</h2>
+                <div class="awards">
+                    <ul>
+                        <li>2025: Budding editor, <em>Plant & Cell Physiology</em></li>
+                        <li>2025: Reviewer for <em>PNAS</em>, <em>Plant & Cell Physiology</em> (2 times), <em>Plant Biotechnology</em></li>
+                        <li>2024: Co-reviewer, <em>Current Biology</em></li>
+                        <li>2023: Co-reviewer, <em>The Plant Cell</em>, <em>Nature Communications</em></li>
+                        <li>2022: Co-reviewer, <em>Nucleic Acids Research</em>; Teaching assistant for Biostatistics (Online), Dr. Fumiaki Katagiri</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Conference Presentations</h2>
+                <div class="awards">
+                    <ul>
+                        <li>Oct 2024: The 7th International Conference on Biotic Plant Interactions (Poster), Hangzhou, China</li>
+                        <li>Aug 2024: Asian Congress of Plant Pathology (Poster), Changchun, China</li>
+                        <li>Aug 2023: Methods In Plant Sciences, Online</li>
+                        <li>Aug 2023: Annual Meeting of the Plant Pathology, Taian, China</li>
+                        <li>Apr 2023: National Academic Annual Meeting of the Chinese Society of Plant Physiology and Molecular Biology, Wuhan, China</li>
+                        <li>Dec 2021: National Congress of Plant Biology, Chengdu, China</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            © 2026 Zhe Wang | Scientific CV | Last updated: March 7, 2026
+        </footer>
+    </div>
+</body>
+</html>

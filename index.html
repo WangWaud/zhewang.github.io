@@ -70,6 +70,24 @@
             position: relative;
             overflow: hidden;
         }
+
+        .hero-profile {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.28);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
         
         header::before {
             content: '';
@@ -102,6 +120,14 @@
             font-size: 0.95rem;
             animation: fadeIn 1s ease 0.3s forwards;
             opacity: 0;
+        }
+
+        .hero-intro {
+            max-width: 760px;
+            margin: 1rem auto 0;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.92);
         }
         
         @keyframes fadeIn {
@@ -321,6 +347,83 @@
             margin-bottom: 0.8rem;
             padding: 0.5rem;
         }
+
+        .cv-placeholder,
+        .interest-grid {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 1.5rem 1.8rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .interest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+
+        .interest-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.2rem 1.3rem;
+            border: 1px solid #eef2f5;
+        }
+
+        .interest-card h3 {
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            color: var(--secondary);
+        }
+
+        .interest-card ul {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+
+        .interest-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-actions {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .primary-button,
+        .secondary-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.2rem;
+            border-radius: 10px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .primary-button {
+            background: var(--primary);
+            color: white;
+        }
+
+        .primary-button:hover {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .secondary-button {
+            background: rgba(52, 152, 219, 0.08);
+            color: var(--primary-dark);
+        }
+
+        .secondary-button:hover {
+            background: rgba(52, 152, 219, 0.16);
+            color: var(--primary-dark);
+        }
         
         /* Responsive styles */
         @media (max-width: 768px) {
@@ -357,6 +460,16 @@
             .education-item, .experience-item {
                 padding: 1.2rem;
             }
+
+            .avatar {
+                width: 112px;
+                height: 112px;
+            }
+
+            .hero-intro {
+                font-size: 0.95rem;
+            }
+
         }
         
         /* Utility classes */
@@ -388,17 +501,23 @@
 <body>
     <div class="container">
         <header>
-            <h1>Zhe Wang</h1>
-            <div class="subtitle">Ph.D. Student in Plant Pathology</div>
-            <div class="subtitle">Plant-Pathogen-Microbiome Interactions Researcher</div>
+            <div class="hero-profile">
+                <img src="pics/Me.jpg" alt="Portrait of Zhe Wang" class="avatar">
+                <h1>Zhe Wang</h1>
+                <div class="subtitle">Ph.D. Student in Plant Pathology</div>
+                <div class="subtitle">Studying plant-pathogen-microbiome interactions in the phyllosphere</div>
+            </div>
+            <div class="hero-intro">
+                I am interested in how plants, pathogens, and microbial communities shape one another, and how these interactions can be understood with multi-omics, microbial ecology, and mechanistic experiments.
+            </div>
             <div class="contact-info">
-                <p>📧 <a href="mailto:zhewang@webmail.hzau.edu.cn">zhewang@webmail.hzau.edu.cn</a> | 
-                🎂 September 9th, 2000</p>
+                <p>📧 <a href="mailto:zhewang@webmail.hzau.edu.cn">zhewang@webmail.hzau.edu.cn</a></p>
                 <div class="links">
                     <a href="https://scholar.google.com/citations?user=haQqxp4AAAAJ&hl=en" target="_blank">🎓 Google Scholar</a>
                     <a href="https://orcid.org/0000-0003-3561-0354" target="_blank">🔬 ORCID</a>
-                    <a href="https://wangwaud.bsky.social" target="_blank">🦋 BlueSky</a>
+                    <a href="cv.html">📄 Scientific CV</a>
                     <a href="https://x.com/WangWaud" target="_blank">🐦 X (Twitter)</a>
+                    <a href="https://wangwaud.bsky.social" target="_blank">🦋 BlueSky</a>
                     <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3OTU5NTQxMA==&action=getalbum&album_id=1974807553029046274#wechat_redirect" target="_blank">📱 WeChat Official Account</a>
                 </div>
             </div>
@@ -407,57 +526,57 @@
         <div class="content">
             <section class="section">
                 <h2>About Me</h2>
-                <p>I'm now a Ph.D. student in Kenichi Tsuda lab at Huazhong Agricultural University, specializing in plant pathology with a focus on plant-pathogen-microbiome interactions and phyllosphere microbiome research. My work combines multi-omics approaches to understand the molecular mechanisms of plant microbiome-mediated plant protection.</p>
-                <p>Moreover, I share my research experience and ideas in WeChat Official Account.</p>
+                <p>I am a Ph.D. student in the Kenichi Tsuda lab at Huazhong Agricultural University. My research focuses on plant-pathogen-microbiome interactions, especially how phyllosphere microbes influence plant health, pathogen behavior, and microbiome-mediated disease outcomes.</p>
+                <p>I am particularly interested in combining multi-omics, microbial ecology, and experimental approaches to understand how plants recruit, shape, or depend on microbial communities under pathogen pressure. I also share research notes and scientific commentary through my WeChat Official Account.</p>
             </section>
 
-            <section class="section">
-                <h2>Education</h2>
-                <div class="education-item">
-                    <h3>Ph.D. in Plant Pathology</h3>
-                    <div class="date">September 2022 – Present</div>
-                    <p><strong>Huazhong Agricultural University</strong>, Wuhan, China</p>
-                    <p><strong>Supervisor:</strong> <a href="https://faculty.hzau.edu.cn/KENICHITSUDA/zh_CN/index.htm" target="_blank">Dr. Kenichi Tsuda</a></p>
-                </div>
-                <div class="education-item">
-                    <h3>B.S. in Plant Protection</h3>
-                    <div class="date">September 2018 – June 2022</div>
-                    <p><strong>Huazhong Agricultural University</strong>, Wuhan, China</p>
-                    <p><strong>Supervisor:</strong> <a href="https://bbrc.hbut.edu.cn/info/1010/1011.htm" target="_blank">Dr. Liangcai Peng</a></p>
+            <section class="section" id="scientific-cv">
+                <h2>Scientific CV</h2>
+                <div class="cv-placeholder">
+                    <p>I keep my full academic record on a separate Scientific CV page, including education, research experience, publications, awards, academic service, and conference presentations.</p>
+                    <div class="cv-actions">
+                        <a href="cv.html" class="primary-button">Open Scientific CV</a>
+                        <a href="#selected-publications" class="secondary-button">View selected publications</a>
+                    </div>
                 </div>
             </section>
 
             <section class="section">
-                <h2>Research Experience</h2>
-                <div class="experience-item">
-                    <h3>Graduate Research Project</h3>
-                    <div class="date">September 2022 – Present</div>
-                    <p><strong>Title:</strong> Multi-omics reveal the interactions among maize, fungal pathogen Bipolaris maydis, and microbiome</p>
-                    <p><strong>Supervisor:</strong> <a href="https://faculty.hzau.edu.cn/KENICHITSUDA/zh_CN/index.htm" target="_blank">Dr. Kenichi Tsuda</a></p>
-                    <p><strong>Abstract:</strong> This research utilizes the maize-<em>Bipolaris maydis</em>-microbiome interaction system, aiming to reveal the molecular mechanisms of plant microbiome-mediated plant protection/pathogen promotion through metagenomics, transcriptomics, metabolomics as well as synthetic community.</p>
-                    <p><em>Part of the National Key R&D Program of China (Project ID: SQ2022YFA1300114)</em></p>
-                </div>
-                <div class="experience-item">
-                    <h3>Undergraduate Research Project</h3>
-                    <div class="date">September 2018 – June 2022</div>
-                    <p><strong>Title:</strong> Development of bioethanol detection type yeast sensor</p>
-                    <p><strong>Supervisor:</strong> <a href="https://bbrc.hbut.edu.cn/info/1010/1011.htm" target="_blank">Dr. Liangcai Peng</a></p>
-                    <p><strong>Abstract:</strong> Energy shortages and environmental pollution highlight the need for renewable energy. This project identified eight ethanol-specific inducible promoters (<em>pESN1-8</em>) in <em>Pichia pastoris</em> via RNA-seq, creating a "sensing yeast" that provides a basis for high-throughput ethanol detection and genetic improvement of ethanol-producing yeast.</p>
+                <h2>Research Interests</h2>
+                <div class="interest-grid">
+                    <div class="interest-card">
+                        <h3>Core Questions</h3>
+                        <ul>
+                            <li>Plant-pathogen-microbiome interactions</li>
+                            <li>Phyllosphere microbiome assembly and function</li>
+                            <li>Microbiome-mediated disease suppression</li>
+                            <li>Host control of microbial community dynamics</li>
+                        </ul>
+                    </div>
+                    <div class="interest-card">
+                        <h3>Current Focus</h3>
+                        <ul>
+                            <li>Maize-<em>Bipolaris maydis</em>-microbiome interactions</li>
+                            <li>Multi-omics analysis of host-microbe interactions</li>
+                            <li>Mechanisms of microbial protection and pathogen promotion</li>
+                            <li>Phyllosphere ecology under pathogen pressure</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
-            <section class="section">
-                <h2>Publications</h2>
+            <section class="section" id="selected-publications">
+                <h2>Selected Publications</h2>
                 <div class="publications">
                     <h3>2026</h3>
                     <ol>
-                        <li><strong>Wang Z*</strong>. <a href="https://doi.org/10.1093/pcp/pcag004" target="_blank" class="highlight-link">Living with the enemy: plants outsource their defense to fungal gatekeepers</a>. <strong><em>Plant and Cell Physiology</em></strong>, pcag004 (2026). [Comment]<br>
+                        <li><strong>Wang Z*</strong>. <a href="https://doi.org/10.1093/pcp/pcag004" target="_blank" class="highlight-link">Living with the enemy: plants outsource their defense to fungal gatekeepers</a>. <strong><em>Plant and Cell Physiology</em></strong>, pcag004 (2026). [Commentary Article]<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://mp.weixin.qq.com/s/lnbH_C1dzEu26wRFkT6M2g" target="_blank">🇨🇳 Chinese version</a></li>
                     </ol>
                     
                     <h3>2025</h3>
                     <ol>
-                        <li><strong>Wang Z</strong>, Yin JK, Tsuda K*. <a href="https://link.springer.com/10.1007/s44297-025-00046-3" target="_blank" class="highlight-link">Harnessing <em>Aspergillus</em> and host M genes for sustainable phyllosphere microbiome engineering</a>. <strong><em>Crop Health</em></strong>, 3(1):6 (2025). [Comment]<br>
+                        <li><strong>Wang Z</strong>, Yin JK, Tsuda K*. <a href="https://link.springer.com/10.1007/s44297-025-00046-3" target="_blank" class="highlight-link">Harnessing <em>Aspergillus</em> and host M genes for sustainable phyllosphere microbiome engineering</a>. <strong><em>Crop Health</em></strong>, 3(1):6 (2025). [Commentary Article]<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://mp.weixin.qq.com/s/zPv7ltqwml9keb6qbUSSig" target="_blank">🇨🇳 Chinese version</a></li>
                     </ol>
                     
@@ -465,9 +584,8 @@
                     <ol>
                         <li>Nakagami S#, <strong>Wang Z#</strong>, Han XW, Tsuda K*. <a href="https://www.annualreviews.org/content/journals/10.1146/annurev-phyto-010824-023359" target="_blank" class="highlight-link">Regulation of bacterial growth and behavior by host plant</a>. <strong><em>Annu. Rev. Phytopathol.</em></strong>, 62:12.1-12.28 (2024). [Review]<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://mp.weixin.qq.com/s/PlD93wUDQjNrvOR1R5VNVA" target="_blank">🇨🇳 Chinese version</a></li>
-                        <li>Jian Y, Gong D, <strong>Wang Z</strong>, Liu L, He J, Han X, Tsuda K*. <a href="https://www.embopress.org/doi/full/10.1038/s44319-023-00023-3" target="_blank" class="highlight-link">How plants manage pathogen infection</a>. <strong><em>EMBO Reports</em></strong>, 25:31-44 (2024). [Review]</li>
                     </ol>
-                    <p><em>*corresponding author, #co-first author</em></p>
+                    <p><em>*corresponding author, #co-first author. See the full list on the Scientific CV page.</em></p>
                 </div>
             </section>
 
@@ -476,79 +594,43 @@
                 <div class="skills-list">
                     <ul>
                         <li>
-                            🔬 <strong>Research</strong>: Critical thinking, Qualified scientific writing, Logical presentation
+                            🔬 <strong>Methods</strong>: Amplicon sequencing analysis, metagenomics, RNA-seq, scRNA-seq, and multi-omics data interpretation
                         </li>
                         <li>
-                            💻 <strong>Bioinformatics</strong>: Shell & R; RNA-seq, scRNA-seq, Amplicon, Metagenome analysis
+                            💻 <strong>Computational Tools</strong>: R, Shell, reproducible analysis workflows, data visualization, and figure preparation
                         </li>
                         <li>
-                            🎨 <strong>Visualization</strong>: BioRender, Rstudio, Adobe Illustrator, PhotoShop
+                            🧪 <strong>Experimental Systems</strong>: Microbe isolation and culture, molecular cloning, vector construction, yeast transformation, qPCR, and microscopy
                         </li>
                         <li>
-                            🧪 <strong>Experimental</strong>: Microbe isolation and culture, Molecular cloning, Vector construction, Yeast genetic transformation, qPCR, Optical microscope
+                            🎨 <strong>Scientific Communication</strong>: Scientific writing, visual abstract and figure design, oral presentation, and research commentary
                         </li>
                         <li>
-                            🌐 <strong>Languages</strong>: Chinese (native), English (CET6: 483, professional)
+                            🌐 <strong>Languages</strong>: Chinese (native) and English (professional working proficiency)
                         </li>
                         <li>
-                            ⚙️ <strong>Others</strong>: Server management, Paper management (Zotero), Logo & Website design, New media operation (150+ original content posts)
+                            ⚙️ <strong>Research Support</strong>: Server management, Zotero-based paper management, website design, and science communication through new media
                         </li>
                     </ul>
                 </div>
             </section>
 
             <section class="section">
-                <h2>Honors & Awards</h2>
+                <h2>Highlights</h2>
                 <div class="awards">
                     <ul>
-                        <li>2024-2025: Outstanding Graduate Student (HZAU)</li>
-                        <li>2024: Third Prize in Graduate Students Academic Competition</li>
-                        <li>2023-2024: Outstanding Graduate Student Leader (HZAU)</li>
-                        <li>2023-2024: Outstanding Graduate Student (HZAU)</li>
-                        <li>2024: First Prize in the "Paper of the Month" (HZAU)</li>
-                        <li>2022-2023: Outstanding Graduate Student (HZAU)</li>
-                        <li>2022, 2023: Master's Degree First-Class Scholarship (HZAU)</li>
-                        <li>2022: Outstanding Graduate (HZAU)</li>
-                        <li>2018-2022: Outstanding Student (HZAU) - 4 times</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>Academic Service</h2>
-                <div class="awards">
-                    <ul>
-                        <li>2025: Budding editor, <em>Plant & Cell Physiology</em></li>
-                        <li>2025: Reviewer for <em>PNAS</em>, <em>Plant & Cell Physiology</em> (2 times), <em>Plant Biotechnology</em></li>
-                        <li>2024: Co-reviewer, <em>Current Biology</em></li>
-                        <li>2023: Co-reviewer, <em>The Plant Cell</em>, <em>Nature Communications</em></li>
-                        <li>2022: Co-reviewer, <em>Nucleic Acids Research</em>; Teaching assistant for Biostatistics (Online), Dr. Fumiaki Katagiri</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>Conference Presentations</h2>
-                <div class="awards">
-                    <ul>
-                        <li>Oct 2024: The 7th International Conference on Biotic Plant Interactions (Poster), Hangzhou, China</li>
-                        <li>Aug 2024: Asian Congress of Plant Pathology (Poster), Changchun, China</li>
-                        <li>Aug 2023: Methods In Plant Sciences, Online</li>
-                        <li>Aug 2023: Annual Meeting of the Plant Pathology, Taian, China</li>
-                        <li>Apr 2023: National Academic Annual Meeting of the Chinese Society of Plant Physiology and Molecular Biology, Wuhan, China</li>
-                        <li>Dec 2021: National Congress of Plant Biology, Chengdu, China</li>
+                        <li>Ph.D. student in the Kenichi Tsuda lab at Huazhong Agricultural University</li>
+                        <li>Research centered on phyllosphere microbiome biology and plant disease outcomes</li>
+                        <li>Published commentary and review articles in <em>Plant and Cell Physiology</em>, <em>Crop Health</em>, and <em>Annu. Rev. Phytopathol.</em></li>
+                        <li>Active in scientific communication through academic writing and WeChat-based research outreach</li>
                     </ul>
                 </div>
             </section>
         </div>
         
         <footer>
-            © 2026 Zhe Wang | Last updated: January 13, 2026
+            © 2026 Zhe Wang | Last updated: March 7, 2026
         </footer>
     </div>
-
-    <script>
-        // 移除了技能进度条动画相关的脚本
-    </script>
 </body>
 </html>

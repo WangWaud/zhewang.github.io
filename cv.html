@@ -61,6 +61,7 @@
             color: white;
             padding: 2.5rem 2rem;
             text-align: center;
+            position: relative;
         }
 
         h1 {
@@ -90,6 +91,38 @@
             border: 1px solid rgba(255,255,255,0.25);
             border-radius: 8px;
             background: rgba(255,255,255,0.12);
+        }
+
+        .lang-switch {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .lang-switch button {
+            border: 1px solid rgba(255,255,255,0.35);
+            background: rgba(255,255,255,0.12);
+            color: white;
+            padding: 0.45rem 0.8rem;
+            border-radius: 999px;
+            cursor: pointer;
+            font: inherit;
+        }
+
+        .lang-switch button.active,
+        .lang-switch button:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        [data-lang] {
+            display: none;
+        }
+
+        html[data-language="en"] [data-lang="en"],
+        html[data-language="zh"] [data-lang="zh"] {
+            display: initial;
         }
 
         .content {
@@ -197,16 +230,25 @@
             h1 {
                 font-size: 2rem;
             }
+
+            .lang-switch {
+                top: 0.9rem;
+                right: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
+            <div class="lang-switch" aria-label="Language switcher">
+                <button type="button" id="cv-lang-en" class="active">EN</button>
+                <button type="button" id="cv-lang-zh">中文</button>
+            </div>
             <h1>Zhe Wang</h1>
-            <div class="subtitle">Scientific CV</div>
+            <div class="subtitle"><span data-lang="en">Scientific CV</span><span data-lang="zh">学术简历</span></div>
             <div class="top-links">
-                <a href="index.html">← Back to Homepage</a>
+                <a href="index.html"><span data-lang="en">← Back to Homepage</span><span data-lang="zh">← 返回主页</span></a>
                 <a href="https://scholar.google.com/citations?user=haQqxp4AAAAJ&hl=en" target="_blank">Google Scholar</a>
                 <a href="https://orcid.org/0000-0003-3561-0354" target="_blank">ORCID</a>
             </div>
@@ -214,127 +256,151 @@
 
         <div class="content">
             <section class="section">
-                <h2>Education</h2>
+                <h2><span data-lang="en">Education</span><span data-lang="zh">教育背景</span></h2>
                 <div class="education-item">
-                    <h3>Ph.D. in Plant Pathology</h3>
-                    <div class="date">September 2022 – Present</div>
-                    <p><strong>Huazhong Agricultural University</strong>, Wuhan, China</p>
-                    <p><strong>Supervisor:</strong> <a href="https://faculty.hzau.edu.cn/KENICHITSUDA/zh_CN/index.htm" target="_blank">Dr. Kenichi Tsuda</a></p>
+                    <h3><span data-lang="en">Ph.D. in Plant Pathology</span><span data-lang="zh">植物病理学博士</span></h3>
+                    <div class="date"><span data-lang="en">September 2022 – Present</span><span data-lang="zh">2022年9月 – 至今</span></div>
+                    <p><span data-lang="en"><strong>Huazhong Agricultural University</strong>, Wuhan, China</span><span data-lang="zh"><strong>华中农业大学</strong>，中国武汉</span></p>
+                    <p><span data-lang="en"><strong>Supervisor:</strong> <a href="https://faculty.hzau.edu.cn/KENICHITSUDA/zh_CN/index.htm" target="_blank">Dr. Kenichi Tsuda</a></span><span data-lang="zh"><strong>导师：</strong><a href="https://faculty.hzau.edu.cn/KENICHITSUDA/zh_CN/index.htm" target="_blank">津田研一 教授</a></span></p>
                 </div>
                 <div class="education-item">
-                    <h3>B.S. in Plant Protection</h3>
-                    <div class="date">September 2018 – June 2022</div>
-                    <p><strong>Huazhong Agricultural University</strong>, Wuhan, China</p>
-                    <p><strong>Supervisor:</strong> <a href="https://bbrc.hbut.edu.cn/info/1010/1011.htm" target="_blank">Dr. Liangcai Peng</a></p>
+                    <h3><span data-lang="en">B.S. in Plant Protection</span><span data-lang="zh">植物保护学学士</span></h3>
+                    <div class="date"><span data-lang="en">September 2018 – June 2022</span><span data-lang="zh">2018年9月 – 2022年6月</span></div>
+                    <p><span data-lang="en"><strong>Huazhong Agricultural University</strong>, Wuhan, China</span><span data-lang="zh"><strong>华中农业大学</strong>，中国武汉</span></p>
+                    <p><span data-lang="en"><strong>Supervisor:</strong> <a href="https://bbrc.hbut.edu.cn/info/1010/1011.htm" target="_blank">Dr. Liangcai Peng</a></span><span data-lang="zh"><strong>导师：</strong><a href="https://bbrc.hbut.edu.cn/info/1010/1011.htm" target="_blank">彭良才 教授</a></span></p>
                 </div>
             </section>
 
             <section class="section">
-                <h2>Research Experience</h2>
+                <h2><span data-lang="en">Research Experience</span><span data-lang="zh">科研经历</span></h2>
                 <div class="experience-item">
-                    <h3>Graduate Research Project</h3>
-                    <div class="date">September 2022 – Present</div>
-                    <p><strong>Title:</strong> Multi-omics reveal the interactions among maize, fungal pathogen Bipolaris maydis, and microbiome</p>
-                    <p><strong>Supervisor:</strong> <a href="https://faculty.hzau.edu.cn/KENICHITSUDA/zh_CN/index.htm" target="_blank">Dr. Kenichi Tsuda</a></p>
-                    <p><strong>Abstract:</strong> This research utilizes the maize-<em>Bipolaris maydis</em>-microbiome interaction system, aiming to reveal the molecular mechanisms of plant microbiome-mediated plant protection/pathogen promotion through metagenomics, transcriptomics, metabolomics as well as synthetic community.</p>
-                    <p><em>Part of the National Key R&D Program of China (Project ID: SQ2022YFA1300114)</em></p>
+                    <h3><span data-lang="en">Graduate Research Project</span><span data-lang="zh">研究生科研项目</span></h3>
+                    <div class="date"><span data-lang="en">September 2022 – Present</span><span data-lang="zh">2022年9月 – 至今</span></div>
+                    <p><span data-lang="en"><strong>Title:</strong> Multi-omics reveal the interactions among maize, fungal pathogen Bipolaris maydis, and microbiome</span><span data-lang="zh"><strong>题目：</strong>多组学解析玉米、真菌病原 <em>Bipolaris maydis</em> 与微生物组之间的互作</span></p>
+                    <p><span data-lang="en"><strong>Supervisor:</strong> <a href="https://faculty.hzau.edu.cn/KENICHITSUDA/zh_CN/index.htm" target="_blank">Dr. Kenichi Tsuda</a></span><span data-lang="zh"><strong>导师：</strong><a href="https://faculty.hzau.edu.cn/KENICHITSUDA/zh_CN/index.htm" target="_blank">津田研一 教授</a></span></p>
+                    <p><span data-lang="en"><strong>Abstract:</strong> This research utilizes the maize-<em>Bipolaris maydis</em>-microbiome interaction system, aiming to reveal the molecular mechanisms of plant microbiome-mediated plant protection/pathogen promotion through metagenomics, transcriptomics, metabolomics as well as synthetic community.</span><span data-lang="zh"><strong>摘要：</strong>本研究利用玉米–<em>Bipolaris maydis</em>–微生物组互作体系，结合宏基因组、转录组、代谢组以及合成菌群等方法，解析植物微生物组介导植物保护或促进病原的分子机制。</span></p>
+                    <p><em><span data-lang="en">Part of the National Key R&D Program of China (Project ID: SQ2022YFA1300114)</span><span data-lang="zh">国家重点研发计划项目组成部分（项目编号：SQ2022YFA1300114）</span></em></p>
                 </div>
                 <div class="experience-item">
-                    <h3>Undergraduate Research Project</h3>
-                    <div class="date">September 2018 – June 2022</div>
-                    <p><strong>Title:</strong> Development of bioethanol detection type yeast sensor</p>
-                    <p><strong>Supervisor:</strong> <a href="https://bbrc.hbut.edu.cn/info/1010/1011.htm" target="_blank">Dr. Liangcai Peng</a></p>
-                    <p><strong>Abstract:</strong> Energy shortages and environmental pollution highlight the need for renewable energy. This project identified eight ethanol-specific inducible promoters (<em>pESN1-8</em>) in <em>Pichia pastoris</em> via RNA-seq, creating a "sensing yeast" that provides a basis for high-throughput ethanol detection and genetic improvement of ethanol-producing yeast.</p>
+                    <h3><span data-lang="en">Undergraduate Research Project</span><span data-lang="zh">本科生科研项目</span></h3>
+                    <div class="date"><span data-lang="en">September 2018 – June 2022</span><span data-lang="zh">2018年9月 – 2022年6月</span></div>
+                    <p><span data-lang="en"><strong>Title:</strong> Development of bioethanol detection type yeast sensor</span><span data-lang="zh"><strong>题目：</strong>生物乙醇检测型酵母传感器的开发</span></p>
+                    <p><span data-lang="en"><strong>Supervisor:</strong> <a href="https://bbrc.hbut.edu.cn/info/1010/1011.htm" target="_blank">Dr. Liangcai Peng</a></span><span data-lang="zh"><strong>导师：</strong><a href="https://bbrc.hbut.edu.cn/info/1010/1011.htm" target="_blank">彭良才 教授</a></span></p>
+                    <p><span data-lang="en"><strong>Abstract:</strong> Energy shortages and environmental pollution highlight the need for renewable energy. This project identified eight ethanol-specific inducible promoters (<em>pESN1-8</em>) in <em>Pichia pastoris</em> via RNA-seq, creating a "sensing yeast" that provides a basis for high-throughput ethanol detection and genetic improvement of ethanol-producing yeast.</span><span data-lang="zh"><strong>摘要：</strong>能源短缺和环境污染凸显了可再生能源的重要性。本项目通过 RNA-seq 在 <em>Pichia pastoris</em> 中鉴定出 8 个乙醇特异诱导启动子（<em>pESN1-8</em>），构建了可用于高通量乙醇检测的“感知酵母”，为产乙醇酵母的遗传改良提供了基础。</span></p>
                 </div>
             </section>
 
             <section class="section">
-                <h2>Publications</h2>
+                <h2><span data-lang="en">Publications</span><span data-lang="zh">论文发表</span></h2>
                 <div class="publications">
                     <h3>2026</h3>
                     <ol>
-                        <li><strong>Wang Z*</strong>. <a href="https://doi.org/10.1093/pcp/pcag004" target="_blank">Living with the enemy: plants outsource their defense to fungal gatekeepers</a>. <strong><em>Plant and Cell Physiology</em></strong>, pcag004 (2026). [Commentary Article]<br>
-                        <a href="https://mp.weixin.qq.com/s/lnbH_C1dzEu26wRFkT6M2g" target="_blank">🇨🇳 Chinese version</a></li>
+                        <li><span data-lang="en"><strong>Wang Z*</strong>. <a href="https://doi.org/10.1093/pcp/pcag004" target="_blank">Living with the enemy: plants outsource their defense to fungal gatekeepers</a>. <strong><em>Plant and Cell Physiology</em></strong>, pcag004 (2026). [Commentary Article]</span><span data-lang="zh"><strong>Wang Z*</strong>。<a href="https://doi.org/10.1093/pcp/pcag004" target="_blank">与敌共生：植物将防御外包给真菌“守门人”</a>。<strong><em>Plant and Cell Physiology</em></strong>, pcag004 (2026)。[述评文章]</span><br>
+                        <a href="https://mp.weixin.qq.com/s/lnbH_C1dzEu26wRFkT6M2g" target="_blank"><span data-lang="en">🇨🇳 Chinese version</span><span data-lang="zh">🇨🇳 中文解读</span></a></li>
                     </ol>
 
                     <h3>2025</h3>
                     <ol>
-                        <li><strong>Wang Z</strong>, Yin JK, Tsuda K*. <a href="https://link.springer.com/10.1007/s44297-025-00046-3" target="_blank">Harnessing <em>Aspergillus</em> and host M genes for sustainable phyllosphere microbiome engineering</a>. <strong><em>Crop Health</em></strong>, 3(1):6 (2025). [Commentary Article]<br>
-                        <a href="https://mp.weixin.qq.com/s/zPv7ltqwml9keb6qbUSSig" target="_blank">🇨🇳 Chinese version</a></li>
+                        <li><span data-lang="en"><strong>Wang Z</strong>, Yin JK, Tsuda K*. <a href="https://link.springer.com/10.1007/s44297-025-00046-3" target="_blank">Harnessing <em>Aspergillus</em> and host M genes for sustainable phyllosphere microbiome engineering</a>. <strong><em>Crop Health</em></strong>, 3(1):6 (2025). [Commentary Article]</span><span data-lang="zh"><strong>Wang Z</strong>, Yin JK, Tsuda K*。<a href="https://link.springer.com/10.1007/s44297-025-00046-3" target="_blank">利用 <em>Aspergillus</em> 和宿主 M 基因实现可持续的叶际微生物组工程</a>。<strong><em>Crop Health</em></strong>, 3(1):6 (2025)。[述评文章]</span><br>
+                        <a href="https://mp.weixin.qq.com/s/zPv7ltqwml9keb6qbUSSig" target="_blank"><span data-lang="en">🇨🇳 Chinese version</span><span data-lang="zh">🇨🇳 中文解读</span></a></li>
                     </ol>
 
                     <h3>2024</h3>
                     <ol>
-                        <li>Nakagami S#, <strong>Wang Z#</strong>, Han XW, Tsuda K*. <a href="https://www.annualreviews.org/content/journals/10.1146/annurev-phyto-010824-023359" target="_blank">Regulation of bacterial growth and behavior by host plant</a>. <strong><em>Annu. Rev. Phytopathol.</em></strong>, 62:12.1-12.28 (2024). [Review]<br>
-                        <a href="https://mp.weixin.qq.com/s/PlD93wUDQjNrvOR1R5VNVA" target="_blank">🇨🇳 Chinese version</a></li>
-                        <li>Jian Y, Gong D, <strong>Wang Z</strong>, Liu L, He J, Han X, Tsuda K*. <a href="https://www.embopress.org/doi/full/10.1038/s44319-023-00023-3" target="_blank">How plants manage pathogen infection</a>. <strong><em>EMBO Reports</em></strong>, 25:31-44 (2024). [Review]</li>
+                        <li><span data-lang="en">Nakagami S#, <strong>Wang Z#</strong>, Han XW, Tsuda K*. <a href="https://www.annualreviews.org/content/journals/10.1146/annurev-phyto-010824-023359" target="_blank">Regulation of bacterial growth and behavior by host plant</a>. <strong><em>Annu. Rev. Phytopathol.</em></strong>, 62:12.1-12.28 (2024). [Review]</span><span data-lang="zh">Nakagami S#, <strong>Wang Z#</strong>, Han XW, Tsuda K*。<a href="https://www.annualreviews.org/content/journals/10.1146/annurev-phyto-010824-023359" target="_blank">宿主植物对细菌生长与行为的调控</a>。<strong><em>Annu. Rev. Phytopathol.</em></strong>, 62:12.1-12.28 (2024)。[综述]</span><br>
+                        <a href="https://mp.weixin.qq.com/s/PlD93wUDQjNrvOR1R5VNVA" target="_blank"><span data-lang="en">🇨🇳 Chinese version</span><span data-lang="zh">🇨🇳 中文解读</span></a></li>
+                        <li><span data-lang="en">Jian Y, Gong D, <strong>Wang Z</strong>, Liu L, He J, Han X, Tsuda K*. <a href="https://www.embopress.org/doi/full/10.1038/s44319-023-00023-3" target="_blank">How plants manage pathogen infection</a>. <strong><em>EMBO Reports</em></strong>, 25:31-44 (2024). [Review]</span><span data-lang="zh">Jian Y, Gong D, <strong>Wang Z</strong>, Liu L, He J, Han X, Tsuda K*。<a href="https://www.embopress.org/doi/full/10.1038/s44319-023-00023-3" target="_blank">植物如何应对病原侵染</a>。<strong><em>EMBO Reports</em></strong>, 25:31-44 (2024)。[综述]</span></li>
                     </ol>
-                    <p><em>*corresponding author, #co-first author</em></p>
+                    <p><em><span data-lang="en">*corresponding author, #co-first author</span><span data-lang="zh">* 通讯作者，# 共同第一作者</span></em></p>
                 </div>
             </section>
 
             <section class="section">
-                <h2>Skills</h2>
+                <h2><span data-lang="en">Skills</span><span data-lang="zh">技能</span></h2>
                 <div class="skills-list">
                     <ul>
-                        <li><strong>Methods</strong>: Amplicon sequencing analysis, metagenomics, RNA-seq, scRNA-seq, and multi-omics data interpretation</li>
-                        <li><strong>Computational Tools</strong>: R, Shell, reproducible analysis workflows, data visualization, and figure preparation</li>
-                        <li><strong>Experimental Systems</strong>: Microbe isolation and culture, molecular cloning, vector construction, yeast transformation, qPCR, and microscopy</li>
-                        <li><strong>Scientific Communication</strong>: Scientific writing, visual abstract and figure design, oral presentation, and research commentary</li>
-                        <li><strong>Languages</strong>: Chinese (native) and English (professional working proficiency)</li>
-                        <li><strong>Research Support</strong>: Server management, Zotero-based paper management, website design, and science communication through new media</li>
+                        <li><span data-lang="en"><strong>Methods</strong>: Amplicon sequencing analysis, metagenomics, RNA-seq, scRNA-seq, and multi-omics data interpretation</span><span data-lang="zh"><strong>方法</strong>：扩增子测序分析、宏基因组、RNA-seq、scRNA-seq 与多组学数据解读</span></li>
+                        <li><span data-lang="en"><strong>Computational Tools</strong>: R, Shell, reproducible analysis workflows, data visualization, and figure preparation</span><span data-lang="zh"><strong>计算工具</strong>：R、Shell、可复现分析流程、数据可视化与科研作图</span></li>
+                        <li><span data-lang="en"><strong>Experimental Systems</strong>: Microbe isolation and culture, molecular cloning, vector construction, yeast transformation, qPCR, and microscopy</span><span data-lang="zh"><strong>实验体系</strong>：微生物分离培养、分子克隆、载体构建、酵母转化、qPCR 与显微观察</span></li>
+                        <li><span data-lang="en"><strong>Scientific Communication</strong>: Scientific writing, visual abstract and figure design, oral presentation, and research commentary</span><span data-lang="zh"><strong>科研传播</strong>：学术写作、图形摘要与科研绘图、口头汇报与学术评论</span></li>
+                        <li><span data-lang="en"><strong>Languages</strong>: Chinese (native) and English (professional working proficiency)</span><span data-lang="zh"><strong>语言</strong>：中文（母语）和英语（专业工作能力）</span></li>
+                        <li><span data-lang="en"><strong>Research Support</strong>: Server management, Zotero-based paper management, website design, and science communication through new media</span><span data-lang="zh"><strong>科研支持</strong>：服务器管理、基于 Zotero 的文献管理、网站设计与新媒体科学传播</span></li>
                     </ul>
                 </div>
             </section>
 
             <section class="section">
-                <h2>Honors & Awards</h2>
+                <h2><span data-lang="en">Honors & Awards</span><span data-lang="zh">荣誉与奖励</span></h2>
                 <div class="awards">
                     <ul>
-                        <li>2024-2025: Outstanding Graduate Student (HZAU)</li>
-                        <li>2024: Third Prize in Graduate Students Academic Competition</li>
-                        <li>2023-2024: Outstanding Graduate Student Leader (HZAU)</li>
-                        <li>2023-2024: Outstanding Graduate Student (HZAU)</li>
-                        <li>2024: First Prize in the "Paper of the Month" (HZAU)</li>
-                        <li>2022-2023: Outstanding Graduate Student (HZAU)</li>
-                        <li>2022, 2023: Master's Degree First-Class Scholarship (HZAU)</li>
-                        <li>2022: Outstanding Graduate (HZAU)</li>
-                        <li>2018-2022: Outstanding Student (HZAU) - 4 times</li>
+                        <li><span data-lang="en">2024-2025: Outstanding Graduate Student (HZAU)</span><span data-lang="zh">2024–2025：华中农业大学优秀研究生</span></li>
+                        <li><span data-lang="en">2024: Third Prize in Graduate Students Academic Competition</span><span data-lang="zh">2024：研究生学术竞赛三等奖</span></li>
+                        <li><span data-lang="en">2023-2024: Outstanding Graduate Student Leader (HZAU)</span><span data-lang="zh">2023–2024：华中农业大学优秀研究生干部</span></li>
+                        <li><span data-lang="en">2023-2024: Outstanding Graduate Student (HZAU)</span><span data-lang="zh">2023–2024：华中农业大学优秀研究生</span></li>
+                        <li><span data-lang="en">2024: First Prize in the "Paper of the Month" (HZAU)</span><span data-lang="zh">2024：华中农业大学“本月论文”一等奖</span></li>
+                        <li><span data-lang="en">2022-2023: Outstanding Graduate Student (HZAU)</span><span data-lang="zh">2022–2023：华中农业大学优秀研究生</span></li>
+                        <li><span data-lang="en">2022, 2023: Master's Degree First-Class Scholarship (HZAU)</span><span data-lang="zh">2022、2023：华中农业大学硕士研究生一等奖学金</span></li>
+                        <li><span data-lang="en">2022: Outstanding Graduate (HZAU)</span><span data-lang="zh">2022：华中农业大学优秀毕业生</span></li>
+                        <li><span data-lang="en">2018-2022: Outstanding Student (HZAU) - 4 times</span><span data-lang="zh">2018–2022：华中农业大学三好学生（4次）</span></li>
                     </ul>
                 </div>
             </section>
 
             <section class="section">
-                <h2>Academic Service</h2>
+                <h2><span data-lang="en">Academic Service</span><span data-lang="zh">学术服务</span></h2>
                 <div class="awards">
                     <ul>
-                        <li>2025: Budding editor, <em>Plant & Cell Physiology</em></li>
-                        <li>2025: Reviewer for <em>PNAS</em>, <em>Plant & Cell Physiology</em> (2 times), <em>Plant Biotechnology</em></li>
-                        <li>2024: Co-reviewer, <em>Current Biology</em></li>
-                        <li>2023: Co-reviewer, <em>The Plant Cell</em>, <em>Nature Communications</em></li>
-                        <li>2022: Co-reviewer, <em>Nucleic Acids Research</em>; Teaching assistant for Biostatistics (Online), Dr. Fumiaki Katagiri</li>
+                        <li><span data-lang="en">2025: Budding editor, <em>Plant & Cell Physiology</em></span><span data-lang="zh">2025：<em>Plant & Cell Physiology</em> 青年编辑</span></li>
+                        <li><span data-lang="en">2025: Reviewer for <em>PNAS</em>, <em>Plant & Cell Physiology</em> (2 times), <em>Plant Biotechnology</em></span><span data-lang="zh">2025：担任 <em>PNAS</em>、<em>Plant & Cell Physiology</em>（2次）和 <em>Plant Biotechnology</em> 审稿人</span></li>
+                        <li><span data-lang="en">2024: Co-reviewer, <em>Current Biology</em></span><span data-lang="zh">2024：<em>Current Biology</em> 共同审稿人</span></li>
+                        <li><span data-lang="en">2023: Co-reviewer, <em>The Plant Cell</em>, <em>Nature Communications</em></span><span data-lang="zh">2023：<em>The Plant Cell</em>、<em>Nature Communications</em> 共同审稿人</span></li>
+                        <li><span data-lang="en">2022: Co-reviewer, <em>Nucleic Acids Research</em>; Teaching assistant for Biostatistics (Online), Dr. Fumiaki Katagiri</span><span data-lang="zh">2022：<em>Nucleic Acids Research</em> 共同审稿人；Biostatistics（线上）课程助教，授课教师 Fumiaki Katagiri</span></li>
                     </ul>
                 </div>
             </section>
 
             <section class="section">
-                <h2>Conference Presentations</h2>
+                <h2><span data-lang="en">Conference Presentations</span><span data-lang="zh">会议报告</span></h2>
                 <div class="awards">
                     <ul>
-                        <li>Oct 2024: The 7th International Conference on Biotic Plant Interactions (Poster), Hangzhou, China</li>
-                        <li>Aug 2024: Asian Congress of Plant Pathology (Poster), Changchun, China</li>
-                        <li>Aug 2023: Methods In Plant Sciences, Online</li>
-                        <li>Aug 2023: Annual Meeting of the Plant Pathology, Taian, China</li>
-                        <li>Apr 2023: National Academic Annual Meeting of the Chinese Society of Plant Physiology and Molecular Biology, Wuhan, China</li>
-                        <li>Dec 2021: National Congress of Plant Biology, Chengdu, China</li>
+                        <li><span data-lang="en">Oct 2024: The 7th International Conference on Biotic Plant Interactions (Poster), Hangzhou, China</span><span data-lang="zh">2024年10月：第七届生物性植物互作国际会议（海报），中国杭州</span></li>
+                        <li><span data-lang="en">Aug 2024: Asian Congress of Plant Pathology (Poster), Changchun, China</span><span data-lang="zh">2024年8月：亚洲植物病理学大会（海报），中国长春</span></li>
+                        <li><span data-lang="en">Aug 2023: Methods In Plant Sciences, Online</span><span data-lang="zh">2023年8月：Methods In Plant Sciences，线上</span></li>
+                        <li><span data-lang="en">Aug 2023: Annual Meeting of the Plant Pathology, Taian, China</span><span data-lang="zh">2023年8月：植物病理学年会，中国泰安</span></li>
+                        <li><span data-lang="en">Apr 2023: National Academic Annual Meeting of the Chinese Society of Plant Physiology and Molecular Biology, Wuhan, China</span><span data-lang="zh">2023年4月：中国植物生理与植物分子生物学学会全国学术年会，中国武汉</span></li>
+                        <li><span data-lang="en">Dec 2021: National Congress of Plant Biology, Chengdu, China</span><span data-lang="zh">2021年12月：全国植物生物学大会，中国成都</span></li>
                     </ul>
                 </div>
             </section>
         </div>
 
         <footer>
-            © 2026 Zhe Wang | Scientific CV | Last updated: March 7, 2026
+            <span data-lang="en">© 2026 Zhe Wang | Scientific CV | Last updated: March 7, 2026</span><span data-lang="zh">© 2026 Zhe Wang | 学术简历 | 最后更新：2026年3月7日</span>
         </footer>
     </div>
+    <script>
+        (function () {
+            const root = document.documentElement;
+            const storageKey = 'preferred-language';
+            const btnEn = document.getElementById('cv-lang-en');
+            const btnZh = document.getElementById('cv-lang-zh');
+
+            function setLanguage(lang) {
+                root.setAttribute('data-language', lang);
+                root.setAttribute('lang', lang === 'zh' ? 'zh-CN' : 'en');
+                localStorage.setItem(storageKey, lang);
+                if (btnEn && btnZh) {
+                    btnEn.classList.toggle('active', lang === 'en');
+                    btnZh.classList.toggle('active', lang === 'zh');
+                }
+            }
+
+            const saved = localStorage.getItem(storageKey);
+            setLanguage(saved === 'zh' ? 'zh' : 'en');
+
+            btnEn && btnEn.addEventListener('click', function () { setLanguage('en'); });
+            btnZh && btnZh.addEventListener('click', function () { setLanguage('zh'); });
+        })();
+    </script>
 </body>
 </html>

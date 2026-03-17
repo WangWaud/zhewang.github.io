@@ -506,6 +506,76 @@
             color: var(--primary-dark);
         }
         
+        /* Publication layout */
+        .pub-item {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 0.8rem;
+            align-items: flex-start;
+        }
+
+        .pub-img {
+            flex: 0 0 180px;
+            min-width: 140px;
+            display: flex;
+            align-items: center;
+        }
+
+        .pub-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease;
+        }
+
+        .pub-img img:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-md);
+        }
+
+        .pub-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            color: white;
+        }
+
         /* Responsive styles */
         @media (max-width: 768px) {
             .container {
@@ -556,6 +626,18 @@
                 right: 0.9rem;
             }
 
+            .pub-item {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .pub-img {
+                flex: auto;
+                width: 100%;
+                max-width: 250px;
+                margin: 0 auto; /* Center image on mobile */
+            }
+
         }
         
         /* Utility classes */
@@ -585,7 +667,7 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" as="style">
 </head>
 <body>
-    <div class="container">
+    <div class="container" id="top">
         <header>
             <div class="lang-switch" aria-label="Language switcher">
                 <button type="button" id="lang-en" class="active">EN</button>
@@ -661,30 +743,57 @@
                 <div class="publications">
                     <h3>2026</h3>
                     <ol>
-                        <li><span data-lang="en"><strong>Wang Z*</strong>. <a href="https://doi.org/10.1093/pcp/pcag004" target="_blank" class="highlight-link">Living with the enemy: plants outsource their defense to fungal gatekeepers</a>. <strong><em>Plant and Cell Physiology</em></strong>, pcag004 (2026). [Commentary Article]</span><span data-lang="zh"><strong>Wang Z*</strong>. <a href="https://doi.org/10.1093/pcp/pcag004" target="_blank" class="highlight-link">Living with the enemy: plants outsource their defense to fungal gatekeepers</a>. <strong><em>Plant and Cell Physiology</em></strong>, pcag004 (2026). [述评文章]</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://mp.weixin.qq.com/s/lnbH_C1dzEu26wRFkT6M2g" target="_blank"><span data-lang="en">🇨🇳 Chinese version</span><span data-lang="zh">🇨🇳 中文解读</span></a>
-                        <div class="publication-note">
-                            <p><span data-lang="en">This article is a commentary on Kei Hiruma, Kuldanai Pathompitaknukul, Hiroyuki Tanaka, Yuki Iwaguchi, Shunsuke Miyashima, Nanami Kawamura, Atsushi Toyoda, Takehiko Itoh, and Yusuke Saijo, “Host-mediated endophyte–pathogen competition in roots enables asymptomatic fungal colonization in <em>Arabidopsis thaliana</em>,” <em>Plant and Cell Physiology</em>, 2025, pcaf126, <a href="https://doi.org/10.1093/pcp/pcaf126" target="_blank">https://doi.org/10.1093/pcp/pcaf126</a>.</span><span data-lang="zh">这篇文章是对 Kei Hiruma、Kuldanai Pathompitaknukul、Hiroyuki Tanaka、Yuki Iwaguchi、Shunsuke Miyashima、Nanami Kawamura、Atsushi Toyoda、Takehiko Itoh 和 Yusuke Saijo 的论文 “Host-mediated endophyte–pathogen competition in roots enables asymptomatic fungal colonization in <em>Arabidopsis thaliana</em>” （<em>Plant and Cell Physiology</em>, 2025, pcaf126, <a href="https://doi.org/10.1093/pcp/pcaf126" target="_blank">https://doi.org/10.1093/pcp/pcaf126</a>）所写的 Commentary。</span></p>
-                            <p><span data-lang="en">It was an invited piece for me as a PCP Budding Editor. The manuscript went through repeated revisions and a rather winding path before publication. With Ken's support, it was eventually published under my sole authorship. He told me this might be the only chance in my research career to publish a paper as an independent author.</span><span data-lang="zh">这是我作为 PCP Budding Editor 收到的一篇邀稿，期间反复修改，一波三折。最终在 Ken 的同意下，以我唯一作者的身份发表。他说，这可能是我科研生涯中唯一一次以独立作者身份发表文章的机会。</span></p>
-                        </div></li>
+                        <li>
+                            <div class="pub-item">
+                                <div class="pub-img">
+                                    <img src="pics/2026_PCP.png" alt="Graphical Abstract for 2026 Paper" loading="lazy">
+                                </div>
+                                <div class="pub-content">
+                                    <span data-lang="en"><strong>Wang Z*</strong>. <a href="https://doi.org/10.1093/pcp/pcag004" target="_blank" class="highlight-link">Living with the enemy: plants outsource their defense to fungal gatekeepers</a>. <strong><em>Plant and Cell Physiology</em></strong>, pcag004 (2026). [Commentary Article]</span><span data-lang="zh"><strong>Wang Z*</strong>. <a href="https://doi.org/10.1093/pcp/pcag004" target="_blank" class="highlight-link">Living with the enemy: plants outsource their defense to fungal gatekeepers</a>. <strong><em>Plant and Cell Physiology</em></strong>, pcag004 (2026). [述评文章]</span><br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://mp.weixin.qq.com/s/lnbH_C1dzEu26wRFkT6M2g" target="_blank"><span data-lang="en">🇨🇳 Chinese version</span><span data-lang="zh">🇨🇳 中文解读</span></a>
+                                    <div class="publication-note">
+                                        <p><span data-lang="en">This article is a commentary on Kei Hiruma, Kuldanai Pathompitaknukul, Hiroyuki Tanaka, Yuki Iwaguchi, Shunsuke Miyashima, Nanami Kawamura, Atsushi Toyoda, Takehiko Itoh, and Yusuke Saijo, “Host-mediated endophyte–pathogen competition in roots enables asymptomatic fungal colonization in <em>Arabidopsis thaliana</em>,” <em>Plant and Cell Physiology</em>, 2025, pcaf126, <a href="https://doi.org/10.1093/pcp/pcaf126" target="_blank">https://doi.org/10.1093/pcp/pcaf126</a>.</span><span data-lang="zh">这篇文章是对 Kei Hiruma、Kuldanai Pathompitaknukul、Hiroyuki Tanaka、Yuki Iwaguchi、Shunsuke Miyashima、Nanami Kawamura、Atsushi Toyoda、Takehiko Itoh 和 Yusuke Saijo 的论文 “Host-mediated endophyte–pathogen competition in roots enables asymptomatic fungal colonization in <em>Arabidopsis thaliana</em>” （<em>Plant and Cell Physiology</em>, 2025, pcaf126, <a href="https://doi.org/10.1093/pcp/pcaf126" target="_blank">https://doi.org/10.1093/pcp/pcaf126</a>）所写的 Commentary。</span></p>
+                                        <p><span data-lang="en">It was an invited piece for me as a PCP Budding Editor. The manuscript went through repeated revisions and a rather winding path before publication. With Ken's support, it was eventually published under my sole authorship. He told me this might be the only chance in my research career to publish a paper as an independent author.</span><span data-lang="zh">这是我作为 PCP Budding Editor 收到的一篇邀稿，期间反复修改，一波三折。最终在 Ken 的同意下，以我唯一作者的身份发表。他说，这可能是我科研生涯中唯一一次以独立作者身份发表文章的机会。</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                     </ol>
                     
                     <h3>2025</h3>
                     <ol>
-                        <li><span data-lang="en"><strong>Wang Z</strong>, Yin JK, Tsuda K*. <a href="https://link.springer.com/10.1007/s44297-025-00046-3" target="_blank" class="highlight-link">Harnessing <em>Aspergillus</em> and host M genes for sustainable phyllosphere microbiome engineering</a>. <strong><em>Crop Health</em></strong>, 3(1):6 (2025). [Commentary Article]</span><span data-lang="zh"><strong>Wang Z</strong>, Yin JK, Tsuda K*. <a href="https://link.springer.com/10.1007/s44297-025-00046-3" target="_blank" class="highlight-link">Harnessing <em>Aspergillus</em> and host M genes for sustainable phyllosphere microbiome engineering</a>. <strong><em>Crop Health</em></strong>, 3(1):6 (2025). [述评文章]</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://mp.weixin.qq.com/s/zPv7ltqwml9keb6qbUSSig" target="_blank"><span data-lang="en">🇨🇳 Chinese version</span><span data-lang="zh">🇨🇳 中文解读</span></a>
-                        <div class="publication-note">
-                            <p><span data-lang="en">This paper originally began as a course assignment in my Ph.D. program. I wrote it as a Spotlight around a topic that genuinely interested me, and after communicating with the editor, it was eventually published in <em>Crop Health</em>.</span><span data-lang="zh">这篇论文原本是一篇博士课程论文。我围绕自己感兴趣的主题完成了一篇 Spotlight，并通过与编辑沟通，最终发表在了 <em>Crop Health</em> 上。</span></p>
-                        </div></li>
+                        <li>
+                            <div class="pub-item">
+                                <div class="pub-img">
+                                    <img src="pics/2025_CH.png" alt="Graphical Abstract for 2025 Paper" loading="lazy">
+                                </div>
+                                <div class="pub-content">
+                                    <span data-lang="en"><strong>Wang Z</strong>, Yin JK, Tsuda K*. <a href="https://link.springer.com/10.1007/s44297-025-00046-3" target="_blank" class="highlight-link">Harnessing <em>Aspergillus</em> and host M genes for sustainable phyllosphere microbiome engineering</a>. <strong><em>Crop Health</em></strong>, 3(1):6 (2025). [Commentary Article]</span><span data-lang="zh"><strong>Wang Z</strong>, Yin JK, Tsuda K*. <a href="https://link.springer.com/10.1007/s44297-025-00046-3" target="_blank" class="highlight-link">Harnessing <em>Aspergillus</em> and host M genes for sustainable phyllosphere microbiome engineering</a>. <strong><em>Crop Health</em></strong>, 3(1):6 (2025). [述评文章]</span><br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://mp.weixin.qq.com/s/zPv7ltqwml9keb6qbUSSig" target="_blank"><span data-lang="en">🇨🇳 Chinese version</span><span data-lang="zh">🇨🇳 中文解读</span></a>
+                                    <div class="publication-note">
+                                        <p><span data-lang="en">This paper originally began as a course assignment in my Ph.D. program. I wrote it as a Spotlight around a topic that genuinely interested me, and after communicating with the editor, it was eventually published in <em>Crop Health</em>.</span><span data-lang="zh">这篇论文原本是一篇博士课程论文。我围绕自己感兴趣的主题完成了一篇 Spotlight，并通过与编辑沟通，最终发表在了 <em>Crop Health</em> 上。</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                     </ol>
                     
                     <h3>2024</h3>
                     <ol>
-                        <li><span data-lang="en">Nakagami S#, <strong>Wang Z#</strong>, Han XW, Tsuda K*. <a href="https://www.annualreviews.org/content/journals/10.1146/annurev-phyto-010824-023359" target="_blank" class="highlight-link">Regulation of bacterial growth and behavior by host plant</a>. <strong><em>Annu. Rev. Phytopathol.</em></strong>, 62:12.1-12.28 (2024). [Review]</span><span data-lang="zh">Nakagami S#, <strong>Wang Z#</strong>, Han XW, Tsuda K*. <a href="https://www.annualreviews.org/content/journals/10.1146/annurev-phyto-010824-023359" target="_blank" class="highlight-link">Regulation of bacterial growth and behavior by host plant</a>. <strong><em>Annu. Rev. Phytopathol.</em></strong>, 62:12.1-12.28 (2024). [综述]</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://mp.weixin.qq.com/s/PlD93wUDQjNrvOR1R5VNVA" target="_blank"><span data-lang="en">🇨🇳 Chinese version</span><span data-lang="zh">🇨🇳 中文解读</span></a>
-                        <div class="publication-note">
-                            <p><span data-lang="en">This was the first paper I published as a co-first author.</span><span data-lang="zh">这是我第一次以共同第一作者身份发表文章。</span></p>
-                        </div></li>
+                        <li>
+                            <div class="pub-item">
+                                <div class="pub-img">
+                                    <img src="pics/2024_ARP.png" alt="Graphical Abstract for 2024 Paper" loading="lazy">
+                                </div>
+                                <div class="pub-content">
+                                    <span data-lang="en">Nakagami S#, <strong>Wang Z#</strong>, Han XW, Tsuda K*. <a href="https://www.annualreviews.org/content/journals/10.1146/annurev-phyto-010824-023359" target="_blank" class="highlight-link">Regulation of bacterial growth and behavior by host plant</a>. <strong><em>Annu. Rev. Phytopathol.</em></strong>, 62:12.1-12.28 (2024). [Review]</span><span data-lang="zh">Nakagami S#, <strong>Wang Z#</strong>, Han XW, Tsuda K*. <a href="https://www.annualreviews.org/content/journals/10.1146/annurev-phyto-010824-023359" target="_blank" class="highlight-link">Regulation of bacterial growth and behavior by host plant</a>. <strong><em>Annu. Rev. Phytopathol.</em></strong>, 62:12.1-12.28 (2024). [综述]</span><br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://mp.weixin.qq.com/s/PlD93wUDQjNrvOR1R5VNVA" target="_blank"><span data-lang="en">🇨🇳 Chinese version</span><span data-lang="zh">🇨🇳 中文解读</span></a>
+                                    <div class="publication-note">
+                                        <p><span data-lang="en">This was the first paper I published as a co-first author.</span><span data-lang="zh">这是我第一次以共同第一作者身份发表文章。</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                     </ol>
                     <p><em><span data-lang="en">*corresponding author, #co-first author. See the full list on the Scientific CV page.</span><span data-lang="zh">* 通讯作者，# 共同第一作者。完整列表请见学术简历页面。</span></em></p>
                 </div>
@@ -722,7 +831,7 @@
             <section class="section">
                 <h2><span data-lang="en">Beyond Research</span><span data-lang="zh">科研之外</span></h2>
                 <div class="personal-note">
-                    <p><span data-lang="en">I also enjoy playing badminton, and I share some of my badminton moments and daily life on <a href="https://space.bilibili.com/383663580" target="_blank">Bilibili</a>.</span><span data-lang="zh">我也很喜欢打羽毛球，并会在 <a href="https://space.bilibili.com/383663580" target="_blank">Bilibili</a> 记录一些打球日常和生活片段。</span></p>
+                    <p><span data-lang="en">I enjoy playing badminton, and I share some of my badminton moments on <a href="https://space.bilibili.com/383663580" target="_blank">Bilibili</a>.</span><span data-lang="zh">我很喜欢打羽毛球，并会在 <a href="https://space.bilibili.com/383663580" target="_blank">Bilibili</a> 记录一些打球片段。</span></p>
                     
                     <p style="margin-top: 1rem;">
                         <span data-lang="en">I also run a WeChat Official Account where I share my thoughts and experiences. <em>(Although written in Chinese, you are more than welcome to read them!)</em></span>
@@ -769,6 +878,12 @@
             <span data-lang="en">© 2026 Zhe Wang | Last updated: March 17, 2026</span><span data-lang="zh">© 2026 Zhe Wang | 最后更新：2026年3月17日</span>
         </footer>
     </div>
+
+    <!-- Back to Top Button -->
+    <a href="#top" class="back-to-top" id="backToTop" aria-label="Back to top">
+        ↑
+    </a>
+
     <script>
         (function () {
             const root = document.documentElement;
@@ -791,6 +906,18 @@
 
             btnEn && btnEn.addEventListener('click', function () { setLanguage('en'); });
             btnZh && btnZh.addEventListener('click', function () { setLanguage('zh'); });
+
+            // Back to top button visibility toggle
+            const backToTopBtn = document.getElementById('backToTop');
+            if (backToTopBtn) {
+                window.addEventListener('scroll', function () {
+                    if (window.scrollY > 300) {
+                        backToTopBtn.classList.add('show');
+                    } else {
+                        backToTopBtn.classList.remove('show');
+                    }
+                });
+            }
         })();
     </script>
 </body>

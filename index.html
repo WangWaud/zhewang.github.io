@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-language="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,199 +19,89 @@
     <link rel="icon" type="image/jpeg" href="pics/Me.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Sora:wght@400;500;600;700&amp;display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Sora:wght@400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <style>
         :root {
-            --primary: #3498db;
-            --primary-dark: #2980b9;
-            --secondary: #2c3e50;
-            --light: #f8f9fa;
-            --text: #333;
-            --text-light: #7f8c8d;
-            --border: #eee;
-            --shadow-sm: 0 3px 10px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
+            --bg: #08111c;
+            --bg-soft: #0e1b2b;
+            --panel: rgba(9, 20, 33, 0.74);
+            --panel-strong: rgba(10, 18, 30, 0.92);
+            --line: rgba(173, 216, 255, 0.16);
+            --line-strong: rgba(173, 216, 255, 0.3);
+            --text: #f4f8ff;
+            --text-muted: rgba(230, 240, 255, 0.72);
+            --text-faint: rgba(230, 240, 255, 0.52);
+            --accent: #8fd3ff;
+            --accent-strong: #5ec6ff;
+            --accent-warm: #d9f4ff;
+            --glow: rgba(103, 196, 255, 0.22);
+            --shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+            --shadow-soft: 0 14px 38px rgba(0, 0, 0, 0.22);
+            --radius-lg: 28px;
+            --radius-md: 20px;
+            --radius-sm: 14px;
+            --transition: 220ms ease;
+            --max-width: 1180px;
         }
-        
-        /* Base styles with modern reset */
-        *, *::before, *::after {
+
+        * {
             box-sizing: border-box;
         }
-        
+
         html {
             scroll-behavior: smooth;
         }
-        
+
         body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            min-height: 100vh;
+            font-family: "Plus Jakarta Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
             color: var(--text);
-            text-align: justify;
-        }
-        
-        /* Container styles */
-        .container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            background-color: white;
-            box-shadow: var(--shadow-md);
-            border-radius: 12px;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Header styles */
-        header {
-            background: linear-gradient(135deg, var(--secondary), var(--primary), var(--primary-dark));
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
+            background:
+                radial-gradient(circle at 12% 18%, rgba(95, 166, 255, 0.24), transparent 24%),
+                radial-gradient(circle at 85% 12%, rgba(139, 235, 255, 0.18), transparent 24%),
+                radial-gradient(circle at 54% 78%, rgba(50, 97, 170, 0.18), transparent 28%),
+                linear-gradient(180deg, #08111c 0%, #0b1521 40%, #07111c 100%);
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
-        .hero-profile {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .avatar {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid rgba(255, 255, 255, 0.28);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
             pointer-events: none;
-        }
-        
-        h1 {
-            margin: 0;
-            font-size: 2.8rem;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-            animation: fadeIn 0.8s ease;
-        }
-        
-        .subtitle {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            margin-top: 0.5rem;
-            font-weight: 300;
-        }
-        
-        .contact-info {
-            margin-top: 1.5rem;
-            font-size: 0.95rem;
-            animation: fadeIn 1s ease 0.3s forwards;
-            opacity: 0;
+            z-index: -2;
         }
 
-        .hero-intro {
-            max-width: 760px;
-            margin: 1rem auto 0;
-            font-size: 1rem;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.92);
+        body::before {
+            background:
+                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 36px 36px;
+            mask-image: radial-gradient(circle at center, black 45%, transparent 92%);
+            opacity: 0.24;
         }
-        
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
+
+        body::after {
+            background: radial-gradient(circle at center, transparent 0%, rgba(4, 8, 15, 0.52) 75%, rgba(4, 8, 15, 0.84) 100%);
+            z-index: -1;
         }
-        
-        .contact-info, .contact-info p, .contact-info a {
-            color: white;
+
+        a {
+            color: inherit;
             text-decoration: none;
-            transition: var(--transition);
-            opacity: 0.9;
-        }
-        
-        .contact-info a:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
-        
-        .links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
-        }
-        
-        .links a {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(5px);
-            color: white;
-            padding: 0.6rem 1.2rem;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .links a:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
         }
 
-        .lang-switch {
-            position: absolute;
-            top: 1.25rem;
-            right: 1.25rem;
-            z-index: 2;
-            display: flex;
-            gap: 0.5rem;
+        img {
+            max-width: 100%;
+            display: block;
         }
 
-        .lang-switch button {
-            border: 1px solid rgba(255, 255, 255, 0.35);
-            background: rgba(255, 255, 255, 0.12);
-            color: white;
-            padding: 0.45rem 0.8rem;
-            border-radius: 999px;
-            cursor: pointer;
+        button {
             font: inherit;
-            transition: var(--transition);
-        }
-
-        .lang-switch button.active,
-        .lang-switch button:hover {
-            background: rgba(255, 255, 255, 0.25);
         }
 
         [data-lang] {
@@ -220,7 +110,7 @@
 
         html[data-language="en"] [data-lang="en"],
         html[data-language="zh"] [data-lang="zh"] {
-            display: initial;
+            display: inline;
         }
 
         html[data-language="en"] [data-lang-block="en"],
@@ -232,690 +122,1389 @@
         html[data-language="zh"] [data-lang-flex="zh"] {
             display: flex;
         }
-        
-        /* Content styles */
-        .content {
-            padding: 2.5rem;
+
+        .page-shell {
+            width: min(calc(100% - 32px), var(--max-width));
+            margin: 20px auto 48px;
         }
-        
-        .section {
-            margin-bottom: 3rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 2rem;
-            animation: fadeIn 0.5s ease forwards;
-            opacity: 0;
+
+        .glass {
+            background: linear-gradient(180deg, rgba(16, 31, 49, 0.78), rgba(9, 18, 31, 0.9));
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow-soft);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
         }
-        
-        .section:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
+
+        .topbar {
+            position: sticky;
+            top: 16px;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 22px;
+            padding: 14px 18px;
+            border-radius: 999px;
         }
-        
-        /* Staggered animation delays */
-        .section:nth-child(1) { animation-delay: 0.1s; }
-        .section:nth-child(2) { animation-delay: 0.2s; }
-        .section:nth-child(3) { animation-delay: 0.3s; }
-        .section:nth-child(4) { animation-delay: 0.4s; }
-        .section:nth-child(5) { animation-delay: 0.5s; }
-        .section:nth-child(6) { animation-delay: 0.6s; }
-        .section:nth-child(7) { animation-delay: 0.7s; }
-        .section:nth-child(8) { animation-delay: 0.8s; }
-        
-        h2 {
-            color: var(--secondary);
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .brand-mark {
+            width: 40px;
+            height: 40px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, rgba(143, 211, 255, 0.28), rgba(94, 198, 255, 0.12));
+            border: 1px solid rgba(143, 211, 255, 0.28);
+            font-family: "Sora", "PingFang SC", sans-serif;
+            font-weight: 700;
+            color: var(--accent-warm);
+            box-shadow: 0 12px 24px rgba(94, 198, 255, 0.12);
+        }
+
+        .brand-copy {
+            min-width: 0;
+        }
+
+        .brand-name {
+            font-family: "Sora", "PingFang SC", sans-serif;
+            font-size: 0.98rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+
+        .brand-sub {
+            margin-top: 2px;
+            font-size: 0.76rem;
+            color: var(--text-faint);
+            line-height: 1.35;
+            white-space: normal;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: nowrap;
+            justify-content: center;
+            min-width: 0;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .nav-links::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-links a {
+            padding: 8px 10px;
+            border-radius: 999px;
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            white-space: nowrap;
+            transition: background var(--transition), color var(--transition), transform var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-1px);
+        }
+
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .lang-switch button {
+            border: 1px solid transparent;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-faint);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all var(--transition);
+        }
+
+        .lang-switch button.active,
+        .lang-switch button:hover {
+            color: var(--text);
+            border-color: rgba(143, 211, 255, 0.22);
+            background: rgba(143, 211, 255, 0.14);
+            box-shadow: inset 0 0 0 1px rgba(143, 211, 255, 0.08);
+        }
+
+        .hero {
             position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-            font-size: 1.8rem;
-        }
-        
-        h2::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 5px;
-            height: 70%;
-            background: linear-gradient(to bottom, var(--primary), var(--primary-dark));
-            border-radius: 2px;
-        }
-        
-        p {
-            line-height: 1.8;
-            color: #000000;
-            margin-bottom: 1rem;
-        }
-        
-        a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: color 0.2s;
-            position: relative;
-        }
-        
-        a:hover {
-            color: var(--primary-dark);
-        }
-        
-        a:not(.links a):not(.contact-info a)::after,
-        .highlight-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--primary);
-            transition: width 0.3s;
-        }
-        
-        a:not(.links a):not(.contact-info a):hover::after,
-        .highlight-link:hover::after {
-            width: 100%;
-        }
-        
-        /* Card styles */
-        .education-item, .experience-item {
-            margin-bottom: 2rem;
-            padding: 1.8rem;
-            background: var(--light);
-            border-radius: 12px;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            position: relative;
+            display: grid;
+            grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.85fr);
+            gap: 24px;
+            padding: 32px;
+            border-radius: 34px;
             overflow: hidden;
-            border-left: 4px solid var(--primary);
+            min-height: 76vh;
         }
-        
-        .education-item:last-child, .experience-item:last-child {
+
+        .hero::before,
+        .hero::after {
+            content: "";
+            position: absolute;
+            border-radius: 999px;
+            filter: blur(10px);
+            pointer-events: none;
+        }
+
+        .hero::before {
+            width: 340px;
+            height: 340px;
+            top: -100px;
+            right: -30px;
+            background: radial-gradient(circle, rgba(94, 198, 255, 0.3), transparent 68%);
+        }
+
+        .hero::after {
+            width: 360px;
+            height: 360px;
+            bottom: -160px;
+            left: -80px;
+            background: radial-gradient(circle, rgba(108, 132, 255, 0.18), transparent 68%);
+        }
+
+        .hero-copy,
+        .hero-panel {
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.88rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--accent), #ffffff);
+            box-shadow: 0 0 18px rgba(143, 211, 255, 0.68);
+        }
+
+        .hero h1 {
+            margin: 26px 0 18px;
+            max-width: 780px;
+            font-family: "Sora", "PingFang SC", sans-serif;
+            font-size: clamp(3rem, 6.4vw, 5.6rem);
+            line-height: 0.96;
+            letter-spacing: -0.06em;
+        }
+
+        .hero h1 .line {
+            display: block;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent) 60%, #87dcff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 28px rgba(143, 211, 255, 0.14);
+        }
+
+        .hero-intro {
+            max-width: 720px;
+            font-size: 1.08rem;
+            line-height: 1.85;
+            color: var(--text-muted);
+            margin-bottom: 28px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+
+        .hero-button,
+        .hero-button-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 48px;
+            padding: 0 18px;
+            border-radius: 999px;
+            transition: transform var(--transition), box-shadow var(--transition), background var(--transition), border-color var(--transition);
+        }
+
+        .hero-button {
+            color: #07111c;
+            background: linear-gradient(135deg, #ffffff, #d8f2ff);
+            box-shadow: 0 16px 34px rgba(143, 211, 255, 0.18);
+        }
+
+        .hero-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 38px rgba(143, 211, 255, 0.24);
+        }
+
+        .hero-button-ghost {
+            color: var(--text);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .hero-button-ghost:hover {
+            transform: translateY(-2px);
+            border-color: rgba(143, 211, 255, 0.32);
+            background: rgba(143, 211, 255, 0.08);
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            max-width: 760px;
+        }
+
+        .hero-tag {
+            padding: 12px 14px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-muted);
+            min-width: 170px;
+        }
+
+        .hero-tag strong {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--text);
+            font-size: 0.98rem;
+        }
+
+        .hero-panel {
+            padding: 22px;
+            border-radius: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 24px;
+            background:
+                linear-gradient(180deg, rgba(14, 26, 42, 0.94), rgba(9, 18, 31, 0.92)),
+                radial-gradient(circle at top right, rgba(143, 211, 255, 0.12), transparent 38%);
+            border: 1px solid var(--line-strong);
+            box-shadow: var(--shadow);
+        }
+
+        .profile-top {
+            display: grid;
+            grid-template-columns: 108px minmax(0, 1fr);
+            gap: 18px;
+            align-items: center;
+        }
+
+        .avatar-wrap {
+            position: relative;
+            width: 108px;
+            height: 108px;
+        }
+
+        .avatar-wrap::after {
+            content: "";
+            position: absolute;
+            inset: -10px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, rgba(143, 211, 255, 0.2), transparent 64%);
+            z-index: -1;
+        }
+
+        .avatar {
+            width: 108px;
+            height: 108px;
+            object-fit: cover;
+            border-radius: 26px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+        }
+
+        .profile-meta h2 {
+            margin: 0 0 8px;
+            font-family: "Sora", "PingFang SC", sans-serif;
+            font-size: 1.85rem;
+            letter-spacing: -0.04em;
+        }
+
+        .profile-role,
+        .profile-org {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .quick-card {
+            padding: 14px;
+            border-radius: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .quick-label {
+            color: var(--text-faint);
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .quick-value {
+            color: var(--text);
+            line-height: 1.65;
+            font-size: 0.95rem;
+            min-width: 0;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        .quick-value a {
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        .profile-links {
+            display: grid;
+            gap: 10px;
+        }
+
+        .profile-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-muted);
+            transition: transform var(--transition), border-color var(--transition), background var(--transition);
+        }
+
+        .profile-link:hover {
+            transform: translateX(2px);
+            color: var(--text);
+            border-color: rgba(143, 211, 255, 0.28);
+            background: rgba(143, 211, 255, 0.08);
+        }
+
+        .profile-link span:last-child {
+            color: var(--text-faint);
+        }
+
+        .metrics {
+            margin-top: 22px;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .metric-card {
+            padding: 22px;
+            border-radius: 24px;
+        }
+
+        .metric-value {
+            font-family: "Sora", "PingFang SC", sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.45rem);
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            margin-bottom: 10px;
+        }
+
+        .metric-label {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .content-stack {
+            margin-top: 22px;
+            display: grid;
+            gap: 18px;
+        }
+
+        .section-card {
+            padding: 30px;
+            border-radius: 30px;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .section-kicker {
+            color: var(--accent);
+            font-size: 0.84rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            margin: 0;
+            font-family: "Sora", "PingFang SC", sans-serif;
+            font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+            letter-spacing: -0.05em;
+        }
+
+        .section-desc {
+            max-width: 520px;
+            color: var(--text-faint);
+            line-height: 1.8;
+        }
+
+        .about-grid,
+        .cv-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 18px;
+        }
+
+        .panel-block {
+            padding: 22px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .panel-block p {
+            margin: 0 0 14px;
+            color: var(--text-muted);
+            line-height: 1.85;
+        }
+
+        .panel-block p:last-child {
             margin-bottom: 0;
         }
-        
-        .education-item:hover, .experience-item:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
+
+        .focus-grid,
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
         }
-        
-        .education-item h3, .experience-item h3 {
-            margin-top: 0;
-            color: var(--secondary);
-            font-weight: 500;
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
+
+        .topic-card,
+        .skill-card {
+            padding: 22px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background:
+                linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.02));
+            transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
         }
-        
-        .date {
-            color: var(--text-light);
-            font-weight: 500;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            background: rgba(0, 0, 0, 0.05);
-            border-radius: 4px;
+
+        .topic-card:hover,
+        .skill-card:hover,
+        .publication-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(143, 211, 255, 0.28);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
         }
-        
-        /* Skills section */
-        .skills-list ul {
-            list-style-type: disc;
-            padding-left: 1.5rem;
+
+        .topic-card h3,
+        .skill-card h3 {
+            margin: 0 0 12px;
+            font-size: 1.12rem;
+            letter-spacing: -0.03em;
         }
-        
-        .skills-list li {
-            margin-bottom: 0.7rem;
-            padding: 0.5rem;
-            text-align: left;
-            position: relative;
-            transition: var(--transition);
+
+        .topic-card ul,
+        .skill-card ul,
+        .life-list,
+        .series-list,
+        .series-list ul {
+            margin: 0;
+            padding-left: 18px;
         }
-        
-        .skills-list li:hover {
-            background: rgba(0, 0, 0, 0.02);
-            border-radius: 4px;
+
+        .topic-card li,
+        .skill-card li,
+        .life-list li,
+        .series-list li,
+        .series-list ul li {
+            color: var(--text-muted);
+            line-height: 1.85;
+            margin-bottom: 8px;
         }
-        
-        /* 移除了进度条相关样式 */
-        
-        /* Publications and Awards */
-        .publications ol {
-            padding-left: 1.5rem;
+
+        .publication-stack {
+            display: grid;
+            gap: 16px;
         }
-        
-        .awards ul {
-            list-style-type: disc;
-            padding-left: 1.5rem;
+
+        .publication-card {
+            display: grid;
+            grid-template-columns: 220px minmax(0, 1fr);
+            gap: 22px;
+            padding: 22px;
+            border-radius: 26px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.035);
+            transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
         }
-        
-        .publications li, .awards li {
-            margin-bottom: 0.8rem;
-            padding: 0.5rem;
-            position: relative;
-            transition: var(--transition);
+
+        .publication-cover {
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            align-self: start;
         }
-        
-        .publications li:hover, .awards li:hover {
-            background: rgba(0, 0, 0, 0.02);
-            border-radius: 4px;
+
+        .publication-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-        
-        .publications li {
-            margin-bottom: 0.8rem;
-            padding: 0.5rem;
+
+        .pub-year {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: rgba(143, 211, 255, 0.12);
+            color: var(--accent-warm);
+            font-size: 0.84rem;
+            margin-bottom: 12px;
+        }
+
+        .pub-title {
+            margin: 0 0 10px;
+            font-size: 1.18rem;
+            line-height: 1.75;
+            color: var(--text);
+        }
+
+        .pub-meta {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .pub-link-line {
+            margin-top: 12px;
+            color: var(--accent);
         }
 
         .publication-note {
-            margin-top: 0.6rem;
-            margin-left: 0.2rem;
-            padding: 0.65rem 0.85rem;
-            font-size: 0.92rem;
-            line-height: 1.65;
-            color: #4f5b66;
-            background: rgba(52, 152, 219, 0.06);
-            border-left: 3px solid rgba(52, 152, 219, 0.45);
-            border-radius: 8px;
+            margin-top: 14px;
+            padding: 14px 16px;
+            border-radius: 18px;
+            background: rgba(143, 211, 255, 0.08);
+            border: 1px solid rgba(143, 211, 255, 0.12);
+            color: var(--text-muted);
+            line-height: 1.8;
         }
 
         .publication-note p {
-            margin: 0 0 0.55rem;
-            font-size: inherit;
-            line-height: inherit;
-            color: inherit;
+            margin: 0 0 10px;
         }
 
         .publication-note p:last-child {
             margin-bottom: 0;
         }
 
-        .cv-placeholder,
-        .personal-note,
-        .interest-grid {
-            background: var(--light);
-            border-radius: 12px;
-            padding: 1.5rem 1.8rem;
-            box-shadow: var(--shadow-sm);
+        .publication-footnote {
+            margin-top: 16px;
+            color: var(--text-faint);
+            line-height: 1.8;
         }
 
-        .interest-grid {
+        .life-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1rem;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 16px;
         }
 
-        .interest-card {
-            background: white;
-            border-radius: 10px;
-            padding: 1.2rem 1.3rem;
-            border: 1px solid #eef2f5;
+        .series-card {
+            padding: 20px;
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
         }
 
-        .interest-card h3 {
-            margin-top: 0;
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-            color: var(--secondary);
+        .series-card + .series-card {
+            margin-top: 14px;
         }
 
-        .interest-card ul {
-            margin: 0;
-            padding-left: 1.2rem;
+        .series-card h3 {
+            margin: 0 0 12px;
+            font-size: 1.08rem;
         }
 
-        .interest-card li {
-            margin-bottom: 0.5rem;
+        .series-card a,
+        .publication-card a,
+        .panel-block a,
+        .life-grid a {
+            color: var(--accent);
+        }
+
+        .series-card a:hover,
+        .publication-card a:hover,
+        .panel-block a:hover,
+        .life-grid a:hover {
+            color: #c8efff;
         }
 
         .cv-actions {
-            margin-top: 1rem;
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
+            gap: 12px;
+            margin-top: 18px;
         }
 
-        .primary-button,
-        .secondary-button {
+        .cta-primary,
+        .cta-secondary {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 0.75rem 1.2rem;
-            border-radius: 10px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: var(--transition);
+            min-height: 48px;
+            padding: 0 18px;
+            border-radius: 999px;
+            transition: all var(--transition);
         }
 
-        .primary-button {
-            background: var(--primary);
-            color: white;
+        .cta-primary {
+            background: linear-gradient(135deg, #ffffff, #daf4ff);
+            color: #07111c;
+            box-shadow: 0 16px 34px rgba(143, 211, 255, 0.16);
         }
 
-        .primary-button:hover {
-            background: var(--primary-dark);
-            color: white;
-            transform: translateY(-1px);
+        .cta-secondary {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.04);
         }
 
-        .secondary-button {
-            background: rgba(52, 152, 219, 0.08);
-            color: var(--primary-dark);
+        .cta-primary:hover,
+        .cta-secondary:hover {
+            transform: translateY(-2px);
         }
 
-        .secondary-button:hover {
-            background: rgba(52, 152, 219, 0.16);
-            color: var(--primary-dark);
-        }
-        
-        /* Publication layout */
-        .pub-item {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-bottom: 0.8rem;
-            align-items: flex-start;
-        }
-
-        .pub-img {
-            flex: 0 0 180px;
-            min-width: 140px;
+        .footer {
+            margin-top: 18px;
+            padding: 20px 24px;
+            border-radius: 24px;
+            color: var(--text-faint);
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            flex-wrap: wrap;
         }
 
-        .pub-img img {
-            width: 100%;
-            height: auto;
-            border-radius: 6px;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border);
-            transition: transform 0.3s ease;
-        }
-
-        .pub-img img:hover {
-            transform: scale(1.03);
-            box-shadow: var(--shadow-md);
-        }
-
-        .pub-content {
-            flex: 1;
-            min-width: 0;
-        }
-
-        /* Back to top button */
         .back-to-top {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 45px;
-            height: 45px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: var(--shadow-md);
+            right: 22px;
+            bottom: 22px;
+            width: 48px;
+            height: 48px;
+            border-radius: 999px;
+            display: grid;
+            place-items: center;
+            color: #07111c;
+            background: linear-gradient(135deg, #ffffff, #d8f2ff);
+            box-shadow: 0 18px 42px rgba(143, 211, 255, 0.18);
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
-            font-size: 1.2rem;
-            font-weight: bold;
+            transform: translateY(10px);
+            transition: all var(--transition);
+            z-index: 30;
         }
 
         .back-to-top.show {
             opacity: 1;
             visibility: visible;
+            transform: translateY(0);
         }
 
-        .back-to-top:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            color: white;
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity 700ms ease, transform 700ms ease;
         }
 
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            .container {
-                margin: 0;
-                border-radius: 0;
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1080px) {
+            .hero,
+            .about-grid,
+            .cv-grid,
+            .life-grid {
+                grid-template-columns: 1fr;
             }
-            
-            header {
-                padding: 2rem 1rem;
+
+            .metrics {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
-            
-            h1 {
-                font-size: 2.2rem;
+
+            .focus-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
             }
-            
-            .subtitle {
-                font-size: 1.1rem;
+        }
+
+        @media (max-width: 880px) {
+            .page-shell {
+                width: min(calc(100% - 20px), var(--max-width));
+                margin-top: 12px;
             }
-            
-            .content {
-                padding: 1.5rem;
+
+            .topbar {
+                top: 10px;
+                border-radius: 26px;
+                padding: 14px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
-            
-            .links {
-                flex-direction: column;
+
+            .nav-links {
+                order: 3;
+                width: 100%;
             }
-            
-            .links a {
+
+            .hero {
+                min-height: auto;
+                padding: 24px;
+            }
+
+            .publication-card {
+                grid-template-columns: 1fr;
+            }
+
+            .publication-cover {
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .brand {
                 width: 100%;
                 justify-content: center;
             }
-            
-            .education-item, .experience-item {
-                padding: 1.2rem;
+
+            .lang-switch {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-links a {
+                padding: 8px 10px;
+                font-size: 0.92rem;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.5rem, 14vw, 3.6rem);
+            }
+
+            .section-card,
+            .hero,
+            .metric-card {
+                padding: 20px;
+            }
+
+            .metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-top {
+                grid-template-columns: 1fr;
+            }
+
+            .avatar-wrap {
+                width: 92px;
+                height: 92px;
             }
 
             .avatar {
-                width: 112px;
-                height: 112px;
+                width: 92px;
+                height: 92px;
+                border-radius: 22px;
             }
 
-            .hero-intro {
-                font-size: 0.95rem;
+            .quick-grid {
+                grid-template-columns: 1fr;
             }
 
-            .lang-switch {
-                top: 0.9rem;
-                right: 0.9rem;
-            }
-
-            .pub-item {
+            .section-head {
                 flex-direction: column;
-                gap: 0.8rem;
+                align-items: flex-start;
             }
 
-            .pub-img {
-                flex: auto;
+            .hero-actions,
+            .cv-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-button,
+            .hero-button-ghost,
+            .cta-primary,
+            .cta-secondary {
                 width: 100%;
-                max-width: 250px;
-                margin: 0 auto; /* Center image on mobile */
             }
 
-        }
-        
-        /* Utility classes */
-        .text-center {
-            text-align: center;
-        }
-        
-        .mb-0 {
-            margin-bottom: 0;
-        }
-        
-        .mt-2 {
-            margin-top: 1rem;
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            background: var(--light);
-            color: var(--text-light);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
+            .footer {
+                justify-content: center;
+                text-align: center;
+            }
         }
     </style>
-    <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" as="style">
 </head>
 <body>
-    <div class="container" id="top">
-        <header>
+    <div class="page-shell">
+        <header class="topbar glass">
+            <div class="brand">
+                <div class="brand-mark">ZW</div>
+                <div class="brand-copy">
+                    <div class="brand-name">Zhe Wang</div>
+                    <div class="brand-sub">
+                        <span data-lang="en">Plant-pathogen-microbiome interactions</span>
+                        <span data-lang="zh">植物-病原-微生物组互作</span>
+                    </div>
+                </div>
+            </div>
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="#about"><span data-lang="en">About</span><span data-lang="zh">关于</span></a>
+                <a href="#focus"><span data-lang="en">Focus</span><span data-lang="zh">方向</span></a>
+                <a href="#publications"><span data-lang="en">Publications</span><span data-lang="zh">论文</span></a>
+                <a href="#skills"><span data-lang="en">Skills</span><span data-lang="zh">技能</span></a>
+                <a href="#beyond"><span data-lang="en">Beyond</span><span data-lang="zh">生活</span></a>
+                <a href="#cv"><span data-lang="en">CV</span><span data-lang="zh">简历</span></a>
+            </nav>
             <div class="lang-switch" aria-label="Language switcher">
                 <button type="button" id="lang-en" class="active">EN</button>
                 <button type="button" id="lang-zh">中文</button>
             </div>
-            <div class="hero-profile">
-                <img src="pics/Me.jpg" alt="Portrait of Zhe Wang" class="avatar">
-                <h1>Zhe Wang</h1>
-                <div class="subtitle"><span data-lang="en">Ph.D. Student in Plant Pathology</span><span data-lang="zh">植物病理学博士研究生</span></div>
-                <div class="subtitle"><span data-lang="en">Studying plant-pathogen-microbiome interactions in the phyllosphere</span><span data-lang="zh">研究叶际环境中的植物–病原–微生物组互作</span></div>
-            </div>
-            <div class="hero-intro">
-                <span data-lang="en">I am interested in how plants, pathogens, and microbial communities shape one another, and how these interactions can be understood with multi-omics, microbial ecology, and mechanistic experiments.</span>
-                <span data-lang="zh">我关注植物、病原与微生物群落如何相互塑造，以及如何通过多组学、微生物生态学和机制实验来理解这些互作。</span>
-            </div>
-            <div class="contact-info">
-                <p>📧 <a href="mailto:zhewang@webmail.hzau.edu.cn">zhewang@webmail.hzau.edu.cn</a></p>
-                <div class="links">
-                    <a href="https://scholar.google.com/citations?user=haQqxp4AAAAJ&hl=en" target="_blank">🎓 Google Scholar</a>
-                    <a href="https://orcid.org/0000-0003-3561-0354" target="_blank">🔬 ORCID</a>
-                    <a href="cv.html"><span data-lang="en">📄 Scientific CV</span><span data-lang="zh">📄 学术简历</span></a>
-                    <a href="https://x.com/WangWaud" target="_blank">🐦 X (Twitter)</a>
-                    <a href="https://wangwaud.bsky.social" target="_blank">🦋 BlueSky</a>
-                    <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3OTU5NTQxMA==&action=getalbum&album_id=1974807553029046274#wechat_redirect" target="_blank"><span data-lang="en">📱 WeChat Official Account</span><span data-lang="zh">📱 微信公众号</span></a>
-                </div>
-            </div>
         </header>
 
-        <div class="content">
-            <section class="section">
-                <h2><span data-lang="en">About Me</span><span data-lang="zh">关于我</span></h2>
-                <p><span data-lang="en">I am a Ph.D. student in the <a href="https://plantimmunity.hzau.edu.cn/" target="_blank">Kenichi Tsuda lab</a> at Huazhong Agricultural University. My research focuses on plant-pathogen-microbiome interactions, especially how phyllosphere microbes influence plant health, pathogen behavior, and microbiome-mediated disease outcomes.</span><span data-lang="zh">我目前是华中农业大学<a href="https://plantimmunity.hzau.edu.cn/" target="_blank">津田贤一实验室</a>的博士研究生。我的研究聚焦于植物–病原–微生物组互作，尤其关注叶际微生物如何影响植物健康、病原行为以及微生物组介导的病害结果。</span></p>
-                <p><span data-lang="en">I am particularly interested in combining multi-omics, microbial ecology, and experimental approaches to understand how plants recruit, shape, or depend on microbial communities under pathogen pressure. I also share research notes and scientific commentary through my WeChat Official Account.</span><span data-lang="zh">我尤其关注结合多组学、微生物生态学与实验方法，理解植物在病原压力下如何招募、塑造或依赖微生物群落。我也会通过微信公众号分享科研笔记与学术评论。</span></p>
+        <main>
+            <section class="hero glass reveal" id="top">
+                <div class="hero-copy">
+                    <div class="eyebrow">
+                        <span data-lang="en">Phyllosphere, microbiome, and plant health</span>
+                        <span data-lang="zh">叶际生态、微生物组与植物健康</span>
+                    </div>
+                    <h1>
+                        <span class="line"><span data-lang="en">Studying how</span><span data-lang="zh">研究植物如何</span></span>
+                        <span class="line highlight"><span data-lang="en">plants, pathogens, and microbes</span><span data-lang="zh">与病原和微生物对话</span></span>
+                        <span class="line"><span data-lang="en">shape one another.</span><span data-lang="zh">并彼此塑造。</span></span>
+                    </h1>
+                    <div class="hero-intro">
+                        <span data-lang="en">I am a Ph.D. student in the Kenichi Tsuda lab at Huazhong Agricultural University. My work focuses on plant-pathogen-microbiome interactions in the phyllosphere, combining multi-omics, microbial ecology, and mechanistic experiments to understand how microbial communities influence plant health and disease outcomes.</span>
+                        <span data-lang="zh">我目前是华中农业大学津田贤一实验室的博士研究生，主要研究叶际环境中的植物-病原-微生物组互作。我希望结合多组学、微生物生态学与机制实验，理解微生物群落如何影响植物健康、病原行为以及病害结局。</span>
+                    </div>
+                    <div class="hero-actions">
+                        <a class="hero-button" href="cv.html">
+                            <span data-lang="en">Open Scientific CV</span>
+                            <span data-lang="zh">查看学术简历</span>
+                        </a>
+                        <a class="hero-button-ghost" href="#publications">
+                            <span data-lang="en">View Selected Publications</span>
+                            <span data-lang="zh">查看精选论文</span>
+                        </a>
+                    </div>
+                    <div class="hero-tags">
+                        <div class="hero-tag">
+                            <strong><span data-lang="en">Core System</span><span data-lang="zh">核心体系</span></strong>
+                            <span data-lang="en">Plant-pathogen-microbiome interactions in maize and the phyllosphere.</span>
+                            <span data-lang="zh">聚焦玉米与叶际环境中的植物-病原-微生物组互作。</span>
+                        </div>
+                        <div class="hero-tag">
+                            <strong><span data-lang="en">Approach</span><span data-lang="zh">研究方式</span></strong>
+                            <span data-lang="en">Multi-omics, microbial ecology, experimental validation, and scientific communication.</span>
+                            <span data-lang="zh">结合多组学、微生物生态学、实验验证与科研传播。</span>
+                        </div>
+                        <div class="hero-tag">
+                            <strong><span data-lang="en">Intent</span><span data-lang="zh">研究目标</span></strong>
+                            <span data-lang="en">Understand how plants recruit and depend on microbial allies under pathogen pressure.</span>
+                            <span data-lang="zh">理解植物在病原压力下如何招募、塑造并依赖微生物盟友。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="hero-panel">
+                    <div>
+                        <div class="profile-top">
+                            <div class="avatar-wrap">
+                                <img src="pics/Me.jpg" alt="Portrait of Zhe Wang" class="avatar">
+                            </div>
+                            <div class="profile-meta">
+                                <h2>Zhe Wang</h2>
+                                <div class="profile-role">
+                                    <span data-lang="en">Ph.D. Student in Plant Pathology</span>
+                                    <span data-lang="zh">植物病理学博士研究生</span>
+                                </div>
+                                <div class="profile-org">
+                                    <span data-lang="en">Huazhong Agricultural University</span>
+                                    <span data-lang="zh">华中农业大学</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-grid">
+                        <div class="quick-card">
+                            <div class="quick-label"><span data-lang="en">Current Lab</span><span data-lang="zh">所在实验室</span></div>
+                            <div class="quick-value">
+                                <a href="https://plantimmunity.hzau.edu.cn/" target="_blank" rel="noopener noreferrer">Kenichi Tsuda Lab</a>
+                            </div>
+                        </div>
+                        <div class="quick-card">
+                            <div class="quick-label"><span data-lang="en">Email</span><span data-lang="zh">邮箱</span></div>
+                            <div class="quick-value">
+                                <a href="mailto:zhewang@webmail.hzau.edu.cn">zhewang@webmail.hzau.edu.cn</a>
+                            </div>
+                        </div>
+                        <div class="quick-card">
+                            <div class="quick-label"><span data-lang="en">Research Lens</span><span data-lang="zh">研究视角</span></div>
+                            <div class="quick-value">
+                                <span data-lang="en">Phyllosphere ecology, microbiome assembly, disease outcomes</span>
+                                <span data-lang="zh">叶际生态、微生物组组装与病害结局</span>
+                            </div>
+                        </div>
+                        <div class="quick-card">
+                            <div class="quick-label"><span data-lang="en">Side Project</span><span data-lang="zh">业余表达</span></div>
+                            <div class="quick-value">
+                                <span data-lang="en">Research notes and commentary via WeChat</span>
+                                <span data-lang="zh">通过微信公众号写科研笔记与评论</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-links">
+                        <a class="profile-link" href="https://scholar.google.com/citations?user=haQqxp4AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer"><span>Google Scholar</span><span>01</span></a>
+                        <a class="profile-link" href="https://orcid.org/0000-0003-3561-0354" target="_blank" rel="noopener noreferrer"><span>ORCID</span><span>02</span></a>
+                        <a class="profile-link" href="https://x.com/WangWaud" target="_blank" rel="noopener noreferrer"><span>X / Twitter</span><span>03</span></a>
+                        <a class="profile-link" href="https://wangwaud.bsky.social" target="_blank" rel="noopener noreferrer"><span>BlueSky</span><span>04</span></a>
+                        <a class="profile-link" href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3OTU5NTQxMA==&amp;action=getalbum&amp;album_id=1974807553029046274#wechat_redirect" target="_blank" rel="noopener noreferrer"><span><span data-lang="en">WeChat Official Account</span><span data-lang="zh">微信公众号</span></span><span>05</span></a>
+                    </div>
+                </aside>
             </section>
 
-            <section class="section" id="scientific-cv">
-                <h2><span data-lang="en">Scientific CV</span><span data-lang="zh">学术简历</span></h2>
-                <div class="cv-placeholder">
-                    <p><span data-lang="en">I keep my full academic record on a separate Scientific CV page, including education, research experience, publications, awards, academic service, and conference presentations.</span><span data-lang="zh">我将完整的学术履历放在单独的学术简历页面中，包括教育背景、科研经历、论文发表、奖励荣誉、学术服务和会议报告。</span></p>
-                    <div class="cv-actions">
-                        <a href="cv.html" class="primary-button"><span data-lang="en">Open Scientific CV</span><span data-lang="zh">查看学术简历</span></a>
-                        <a href="#selected-publications" class="secondary-button"><span data-lang="en">View selected publications</span><span data-lang="zh">查看精选论文</span></a>
+            <section class="metrics reveal" aria-label="Research summary metrics">
+                <div class="metric-card glass">
+                    <div class="metric-value">3</div>
+                    <div class="metric-label">
+                        <span data-lang="en">Selected recent publications highlighted on this homepage.</span>
+                        <span data-lang="zh">首页重点展示的近期代表性论文。</span>
+                    </div>
+                </div>
+                <div class="metric-card glass">
+                    <div class="metric-value"><span data-lang="en">Multi-omics</span><span data-lang="zh">Multi-omics</span></div>
+                    <div class="metric-label">
+                        <span data-lang="en">Transcriptomics, metagenomics, amplicon analysis, and integrative interpretation.</span>
+                        <span data-lang="zh">涵盖转录组、宏基因组、扩增子测序与综合解读。</span>
+                    </div>
+                </div>
+                <div class="metric-card glass">
+                    <div class="metric-value"><span data-lang="en">Phyllosphere</span><span data-lang="zh">Phyllosphere</span></div>
+                    <div class="metric-label">
+                        <span data-lang="en">A biological interface where microbes, pathogens, and host plants continuously negotiate.</span>
+                        <span data-lang="zh">一个微生物、病原与宿主植物持续博弈的生物界面。</span>
+                    </div>
+                </div>
+                <div class="metric-card glass">
+                    <div class="metric-value"><span data-lang="en">Open Notes</span><span data-lang="zh">Open Notes</span></div>
+                    <div class="metric-label">
+                        <span data-lang="en">Research commentary, science communication, and everyday reflection in Chinese.</span>
+                        <span data-lang="zh">持续输出科研评论、科学传播与中文日常思考。</span>
                     </div>
                 </div>
             </section>
 
-            <section class="section">
-                <h2><span data-lang="en">Research Interests</span><span data-lang="zh">研究兴趣</span></h2>
-                <div class="interest-grid">
-                    <div class="interest-card">
-                        <h3><span data-lang="en">Core Questions</span><span data-lang="zh">核心问题</span></h3>
-                        <ul>
-                            <li><span data-lang="en">Plant-pathogen-microbiome interactions</span><span data-lang="zh">植物–病原–微生物组互作</span></li>
-                            <li><span data-lang="en">Phyllosphere microbiome assembly and function</span><span data-lang="zh">叶际微生物组的组装与功能</span></li>
-                            <li><span data-lang="en">Microbiome-mediated disease suppression</span><span data-lang="zh">微生物组介导的病害抑制</span></li>
-                            <li><span data-lang="en">Host control of microbial community dynamics</span><span data-lang="zh">宿主对微生物群落动态的调控</span></li>
-                        </ul>
+            <div class="content-stack">
+                <section class="section-card glass reveal" id="about">
+                    <div class="section-head">
+                        <div>
+                            <div class="section-kicker">Overview</div>
+                            <h2 class="section-title"><span data-lang="en">Research Overview</span><span data-lang="zh">研究概览</span></h2>
+                        </div>
+                        <div class="section-desc">
+                            <span data-lang="en">Research interests in plant health, microbial ecology, and host-microbe-pathogen interactions.</span>
+                            <span data-lang="zh">围绕植物健康、微生物生态学与宿主-微生物-病原互作展开的研究概览。</span>
+                        </div>
                     </div>
-                    <div class="interest-card">
-                        <h3><span data-lang="en">Current Focus</span><span data-lang="zh">当前重点</span></h3>
-                        <ul>
-                            <li><span data-lang="en">Maize-<em>Bipolaris maydis</em>-microbiome interactions</span><span data-lang="zh">玉米–<em>Bipolaris maydis</em>–微生物组互作</span></li>
-                            <li><span data-lang="en">Multi-omics analysis of host-microbe interactions</span><span data-lang="zh">宿主–微生物互作的多组学分析</span></li>
-                            <li><span data-lang="en">Mechanisms of microbial protection and pathogen promotion</span><span data-lang="zh">微生物保护作用与病原促进作用的机制</span></li>
-                            <li><span data-lang="en">Phyllosphere ecology under pathogen pressure</span><span data-lang="zh">病原压力下的叶际生态学</span></li>
-                        </ul>
+                    <div class="about-grid">
+                        <div class="panel-block">
+                            <p>
+                                <span data-lang="en">I am particularly interested in how plants recruit, shape, or depend on microbial communities under pathogen pressure. My research explores how microbial members in the phyllosphere influence host health, pathogen behavior, and microbiome-mediated disease outcomes.</span>
+                                <span data-lang="zh">我尤其关注植物在病原压力下如何招募、塑造或依赖微生物群落。我的研究试图揭示叶际微生物成员如何影响宿主健康、病原行为以及由微生物组介导的病害结果。</span>
+                            </p>
+                            <p>
+                                <span data-lang="en">Methodologically, I like connecting data-rich approaches with mechanistic questions. That usually means combining multi-omics, microbial ecology, and carefully designed experiments rather than treating any one technique as sufficient on its own.</span>
+                                <span data-lang="zh">在方法上，我倾向于把数据密集型手段和机制问题真正连接起来。这通常意味着把多组学、微生物生态学和精心设计的实验结合起来，而不是把任何单一技术当作全部答案。</span>
+                            </p>
+                        </div>
+                        <div class="panel-block">
+                            <p>
+                                <span data-lang="en">I also care about scientific communication. Alongside papers and conference work, I write public-facing research notes and commentary through my WeChat Official Account.</span>
+                                <span data-lang="zh">我也很重视科研传播。除了论文与会议工作外，我会通过个人微信公众号撰写面向公众的科研笔记与学术评论。</span>
+                            </p>
+                            <p>
+                                <span data-lang="en">This homepage offers a concise overview of my research interests, working approaches, and recent academic work.</span>
+                                <span data-lang="zh">这个主页用于简要展示我的研究兴趣、研究方法与近期学术工作。</span>
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <section class="section" id="selected-publications">
-                <h2><span data-lang="en">Selected Publications</span><span data-lang="zh">精选论文</span></h2>
-                <div class="publications">
-                    <h3>2026</h3>
-                    <ol>
-                        <li>
-                            <div class="pub-item">
-                                <div class="pub-img">
-                                    <img src="pics/2026_PCP.png" alt="Graphical Abstract for 2026 Paper" loading="lazy">
-                                </div>
-                                <div class="pub-content">
-                                    <span data-lang="en"><strong>Wang Z*</strong>. <a href="https://doi.org/10.1093/pcp/pcag004" target="_blank" class="highlight-link">Living with the enemy: plants outsource their defense to fungal gatekeepers</a>. <strong><em>Plant and Cell Physiology</em></strong>, pcag004 (2026). [Commentary Article]</span><span data-lang="zh"><strong>Wang Z*</strong>. <a href="https://doi.org/10.1093/pcp/pcag004" target="_blank" class="highlight-link">Living with the enemy: plants outsource their defense to fungal gatekeepers</a>. <strong><em>Plant and Cell Physiology</em></strong>, pcag004 (2026). [述评文章]</span><br>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://mp.weixin.qq.com/s/lnbH_C1dzEu26wRFkT6M2g" target="_blank"><span data-lang="en">🇨🇳 Chinese version</span><span data-lang="zh">🇨🇳 中文解读</span></a>
-                                    <div class="publication-note">
-                                        <p><span data-lang="en">This article is a commentary on Kei Hiruma, Kuldanai Pathompitaknukul, Hiroyuki Tanaka, Yuki Iwaguchi, Shunsuke Miyashima, Nanami Kawamura, Atsushi Toyoda, Takehiko Itoh, and Yusuke Saijo, “Host-mediated endophyte–pathogen competition in roots enables asymptomatic fungal colonization in <em>Arabidopsis thaliana</em>,” <em>Plant and Cell Physiology</em>, 2025, pcaf126, <a href="https://doi.org/10.1093/pcp/pcaf126" target="_blank">https://doi.org/10.1093/pcp/pcaf126</a>.</span><span data-lang="zh">这篇文章是对 Kei Hiruma、Kuldanai Pathompitaknukul、Hiroyuki Tanaka、Yuki Iwaguchi、Shunsuke Miyashima、Nanami Kawamura、Atsushi Toyoda、Takehiko Itoh 和 Yusuke Saijo 的论文 “Host-mediated endophyte–pathogen competition in roots enables asymptomatic fungal colonization in <em>Arabidopsis thaliana</em>” （<em>Plant and Cell Physiology</em>, 2025, pcaf126, <a href="https://doi.org/10.1093/pcp/pcaf126" target="_blank">https://doi.org/10.1093/pcp/pcaf126</a>）所写的 Commentary。</span></p>
-                                        <p><span data-lang="en">It was an invited piece for me as a PCP Budding Editor. The manuscript went through repeated revisions and a rather winding path before publication. With Ken's support, it was eventually published under my sole authorship. He told me this might be the only chance in my research career to publish a paper as an independent author.</span><span data-lang="zh">这是我作为 PCP Budding Editor 收到的一篇邀稿，期间反复修改，一波三折。最终在 Ken 的同意下，以我唯一作者的身份发表。他说，这可能是我科研生涯中唯一一次以独立作者身份发表文章的机会。</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ol>
-                    
-                    <h3>2025</h3>
-                    <ol>
-                        <li>
-                            <div class="pub-item">
-                                <div class="pub-img">
-                                    <img src="pics/2025_CH.png" alt="Graphical Abstract for 2025 Paper" loading="lazy">
-                                </div>
-                                <div class="pub-content">
-                                    <span data-lang="en"><strong>Wang Z</strong>, Yin JK, Tsuda K*. <a href="https://link.springer.com/10.1007/s44297-025-00046-3" target="_blank" class="highlight-link">Harnessing <em>Aspergillus</em> and host M genes for sustainable phyllosphere microbiome engineering</a>. <strong><em>Crop Health</em></strong>, 3(1):6 (2025). [Commentary Article]</span><span data-lang="zh"><strong>Wang Z</strong>, Yin JK, Tsuda K*. <a href="https://link.springer.com/10.1007/s44297-025-00046-3" target="_blank" class="highlight-link">Harnessing <em>Aspergillus</em> and host M genes for sustainable phyllosphere microbiome engineering</a>. <strong><em>Crop Health</em></strong>, 3(1):6 (2025). [述评文章]</span><br>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://mp.weixin.qq.com/s/zPv7ltqwml9keb6qbUSSig" target="_blank"><span data-lang="en">🇨🇳 Chinese version</span><span data-lang="zh">🇨🇳 中文解读</span></a>
-                                    <div class="publication-note">
-                                        <p><span data-lang="en">This paper originally began as a course assignment in my Ph.D. program. I wrote it as a Spotlight around a topic that genuinely interested me, and after communicating with the editor, it was eventually published in <em>Crop Health</em>.</span><span data-lang="zh">这篇论文原本是一篇博士课程论文。我围绕自己感兴趣的主题完成了一篇 Spotlight，并通过与编辑沟通，最终发表在了 <em>Crop Health</em> 上。</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ol>
-                    
-                    <h3>2024</h3>
-                    <ol>
-                        <li>
-                            <div class="pub-item">
-                                <div class="pub-img">
-                                    <img src="pics/2024_ARP.png" alt="Graphical Abstract for 2024 Paper" loading="lazy">
-                                </div>
-                                <div class="pub-content">
-                                    <span data-lang="en">Nakagami S#, <strong>Wang Z#</strong>, Han XW, Tsuda K*. <a href="https://www.annualreviews.org/content/journals/10.1146/annurev-phyto-010824-023359" target="_blank" class="highlight-link">Regulation of bacterial growth and behavior by host plant</a>. <strong><em>Annu. Rev. Phytopathol.</em></strong>, 62:12.1-12.28 (2024). [Review]</span><span data-lang="zh">Nakagami S#, <strong>Wang Z#</strong>, Han XW, Tsuda K*. <a href="https://www.annualreviews.org/content/journals/10.1146/annurev-phyto-010824-023359" target="_blank" class="highlight-link">Regulation of bacterial growth and behavior by host plant</a>. <strong><em>Annu. Rev. Phytopathol.</em></strong>, 62:12.1-12.28 (2024). [综述]</span><br>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://mp.weixin.qq.com/s/PlD93wUDQjNrvOR1R5VNVA" target="_blank"><span data-lang="en">🇨🇳 Chinese version</span><span data-lang="zh">🇨🇳 中文解读</span></a>
-                                    <div class="publication-note">
-                                        <p><span data-lang="en">This was the first paper I published as a co-first author.</span><span data-lang="zh">这是我第一次以共同第一作者身份发表文章。</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ol>
-                    <p><em><span data-lang="en">*corresponding author, #co-first author. See the full list on the Scientific CV page.</span><span data-lang="zh">* 通讯作者，# 共同第一作者。完整列表请见学术简历页面。</span></em></p>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2><span data-lang="en">Skills</span><span data-lang="zh">技能</span></h2>
-                <div class="skills-list">
-                    <ul>
-                        <li>
-                            <span data-lang="en">🔬 <strong>Methods</strong>: Amplicon sequencing analysis, metagenomics, RNA-seq, scRNA-seq, and multi-omics data interpretation</span><span data-lang="zh">🔬 <strong>方法</strong>：扩增子测序分析、宏基因组、RNA-seq、scRNA-seq 以及多组学数据解读</span>
-                        </li>
-                        <li>
-                            <span data-lang="en">💻 <strong>Computational Tools</strong>: R, Shell, reproducible analysis workflows, data visualization, and figure preparation</span><span data-lang="zh">💻 <strong>计算工具</strong>：R、Shell、可复现分析流程、数据可视化与科研作图</span>
-                        </li>
-                        <li>
-                            <span data-lang="en">🧠 <strong>AI-assisted Workflow</strong>: vibe coding, Positron, and practical use of AI tools for rapid prototyping, analysis, and writing support</span><span data-lang="zh">🧠 <strong>AI 辅助工作流</strong>：vibe coding、Positron，以及将 AI 工具用于快速原型、数据分析与写作支持</span>
-                        </li>
-                        <li>
-                            <span data-lang="en">🧪 <strong>Experimental Systems</strong>: Microbe isolation and culture, molecular cloning, vector construction, yeast transformation, qPCR, and microscopy</span><span data-lang="zh">🧪 <strong>实验体系</strong>：微生物分离与培养、分子克隆、载体构建、酵母转化、qPCR 与显微观察</span>
-                        </li>
-                        <li>
-                            <span data-lang="en">🎨 <strong>Scientific Communication</strong>: Scientific writing, visual abstract and figure design, oral presentation, and research commentary</span><span data-lang="zh">🎨 <strong>科研传播</strong>：学术写作、图形摘要与科研图设计、口头汇报与学术评论</span>
-                        </li>
-                        <li>
-                            <span data-lang="en">🌐 <strong>Languages</strong>: Chinese (native) and English (professional working proficiency)</span><span data-lang="zh">🌐 <strong>语言</strong>：中文（母语）和英语（专业工作能力）</span>
-                        </li>
-                        <li>
-                            <span data-lang="en">⚙️ <strong>Research Support</strong>: Server management, Zotero-based paper management, website design, and science communication through new media</span><span data-lang="zh">⚙️ <strong>科研支持</strong>：服务器管理、基于 Zotero 的文献管理、网站设计与新媒体科学传播</span>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2><span data-lang="en">Beyond Research</span><span data-lang="zh">科研之外</span></h2>
-                <div class="personal-note">
-                    <p><span data-lang="en">I enjoy playing badminton, and I share some of my badminton moments on <a href="https://space.bilibili.com/383663580" target="_blank">Bilibili</a>.</span><span data-lang="zh">我很喜欢打羽毛球，并会在 <a href="https://space.bilibili.com/383663580" target="_blank">Bilibili</a> 记录一些打球片段。</span></p>
-                    
-                    <p style="margin-top: 1rem;">
-                        <span data-lang="en">I also run a WeChat Official Account where I share my thoughts and experiences. <em>(Although written in Chinese, you are more than welcome to read them!)</em></span>
-                        <span data-lang="zh">此外，我还经营着个人微信公众号，并在其中分享一些日常思考与感悟，以下是一些我推荐的内容：</span>
-                    </p>
-                    <ul style="padding-left: 1.5rem; line-height: 1.8; margin-top: 0.5rem;">
-                        <li style="margin-bottom: 0.8rem;">
-                            <span data-lang="en"><strong>Series: <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3OTU5NTQxMA==&action=getalbum&album_id=1974807553029046274&scene=126&sessionid=#wechat_redirect" target="_blank">My Daily Life</a></strong></span>
-                            <span data-lang="zh"><strong>专题：<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3OTU5NTQxMA==&action=getalbum&album_id=1974807553029046274&scene=126&sessionid=#wechat_redirect" target="_blank">我的日常</a></strong></span>
-                            <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
-                                <li style="margin-bottom: 0.4rem;">
-                                    <span data-lang="en"><a href="https://mp.weixin.qq.com/s/f-5QpBksL5cspBsqTTwIPQ" target="_blank">Do you also want to become an excellent scientist?</a></span>
-                                    <span data-lang="zh"><a href="https://mp.weixin.qq.com/s/f-5QpBksL5cspBsqTTwIPQ" target="_blank">你也想成为优秀的科学家吗？</a></span>
-                                </li>
-                                <li style="margin-bottom: 0.4rem;">
-                                    <span data-lang="en"><a href="https://mp.weixin.qq.com/s/Jx9nq_h6b_IqsXf-k6YWlw" target="_blank">What can you learn after reviewing two articles aiming for top-tier journals?</a></span>
-                                    <span data-lang="zh"><a href="https://mp.weixin.qq.com/s/Jx9nq_h6b_IqsXf-k6YWlw" target="_blank">审完两篇想要发表在顶刊上的文章后，能学到什么？</a></span>
-                                </li>
-                                <li style="margin-bottom: 0.4rem;">
-                                    <span data-lang="en"><a href="https://mp.weixin.qq.com/s/jmGjxHJRlGBcU1aYInw3gg" target="_blank">Enjoying academic networking</a></span>
-                                    <span data-lang="zh"><a href="https://mp.weixin.qq.com/s/jmGjxHJRlGBcU1aYInw3gg" target="_blank">享受学术社交</a></span>
-                                </li>
-                                <li style="margin-bottom: 0.4rem;">
-                                    <span data-lang="en"><a href="https://mp.weixin.qq.com/s/SvwgOQzgdbppkqNlu1TSPg" target="_blank">A few stories from my internship at Sun Yat-sen University</a></span>
-                                    <span data-lang="zh"><a href="https://mp.weixin.qq.com/s/SvwgOQzgdbppkqNlu1TSPg" target="_blank">中山实习二三事</a></span>
-                                </li>
-                                <li style="margin-bottom: 0.4rem;">
-                                    <span data-lang="en"><a href="https://mp.weixin.qq.com/s/gs504x2daL7ijpWSY0pwYw" target="_blank">The ideal mentor in my heart</a></span>
-                                    <span data-lang="zh"><a href="https://mp.weixin.qq.com/s/gs504x2daL7ijpWSY0pwYw" target="_blank">我心中的好导师</a></span>
-                                </li>
+                <section class="section-card glass reveal" id="focus">
+                    <div class="section-head">
+                        <div>
+                            <div class="section-kicker">Research Focus</div>
+                            <h2 class="section-title"><span data-lang="en">Research Focus</span><span data-lang="zh">研究方向</span></h2>
+                        </div>
+                        <div class="section-desc">
+                            <span data-lang="en">Core scientific questions and current biological systems under study.</span>
+                            <span data-lang="zh">当前关注的核心科学问题与研究体系。</span>
+                        </div>
+                    </div>
+                    <div class="focus-grid">
+                        <article class="topic-card">
+                            <h3><span data-lang="en">Core Questions</span><span data-lang="zh">核心问题</span></h3>
+                            <ul>
+                                <li><span data-lang="en">Plant-pathogen-microbiome interactions</span><span data-lang="zh">植物-病原-微生物组互作</span></li>
+                                <li><span data-lang="en">Phyllosphere microbiome assembly and function</span><span data-lang="zh">叶际微生物组的组装与功能</span></li>
+                                <li><span data-lang="en">Microbiome-mediated disease suppression</span><span data-lang="zh">微生物组介导的病害抑制</span></li>
+                                <li><span data-lang="en">Host control of microbial community dynamics</span><span data-lang="zh">宿主对微生物群落动态的调控</span></li>
                             </ul>
-                        </li>
-                        <li>
-                            <span data-lang="en"><strong>Series: <a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3OTU5NTQxMA==&action=getalbum&album_id=2067014247435337730&scene=126&sessionid=#wechat_redirect" target="_blank">Graduate Recommendation Experience Sharing</a></strong></span>
-                            <span data-lang="zh"><strong>专题：<a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3OTU5NTQxMA==&action=getalbum&album_id=2067014247435337730&scene=126&sessionid=#wechat_redirect" target="_blank">保研经历分享</a></strong></span>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+                        </article>
+                        <article class="topic-card">
+                            <h3><span data-lang="en">Current Focus</span><span data-lang="zh">当前重点</span></h3>
+                            <ul>
+                                <li><span data-lang="en">Maize-<em>Bipolaris maydis</em>-microbiome interactions</span><span data-lang="zh">玉米-<em>Bipolaris maydis</em>-微生物组互作</span></li>
+                                <li><span data-lang="en">Multi-omics analysis of host-microbe interactions</span><span data-lang="zh">宿主-微生物互作的多组学分析</span></li>
+                                <li><span data-lang="en">Mechanisms of microbial protection and pathogen promotion</span><span data-lang="zh">微生物保护作用与病原促进作用机制</span></li>
+                                <li><span data-lang="en">Phyllosphere ecology under pathogen pressure</span><span data-lang="zh">病原压力下的叶际生态学</span></li>
+                            </ul>
+                        </article>
+                    </div>
+                </section>
 
-        </div>
-        
-        <footer>
-            <span data-lang="en">© 2026 Zhe Wang | Last updated: March 17, 2026</span><span data-lang="zh">© 2026 Zhe Wang | 最后更新：2026年3月17日</span>
+                <section class="section-card glass reveal" id="publications">
+                    <div class="section-head">
+                        <div>
+                            <div class="section-kicker">Selected Work</div>
+                            <h2 class="section-title"><span data-lang="en">Publications</span><span data-lang="zh">精选论文</span></h2>
+                        </div>
+                        <div class="section-desc">
+                            <span data-lang="en">Selected recent publications with links and brief context.</span>
+                            <span data-lang="zh">近期代表性论文及其相关链接与简要说明。</span>
+                        </div>
+                    </div>
+                    <div class="publication-stack">
+                        <article class="publication-card">
+                            <div class="publication-cover">
+                                <img src="pics/2026_PCP.png" alt="Graphical abstract for the 2026 Plant and Cell Physiology commentary" loading="lazy">
+                            </div>
+                            <div>
+                                <div class="pub-year">2026</div>
+                                <p class="pub-title">
+                                    <span data-lang="en"><strong>Wang Z*</strong>. <a href="https://doi.org/10.1093/pcp/pcag004" target="_blank" rel="noopener noreferrer">Living with the enemy: plants outsource their defense to fungal gatekeepers</a>. <strong><em>Plant and Cell Physiology</em></strong>, pcag004 (2026). [Commentary Article]</span>
+                                    <span data-lang="zh"><strong>Wang Z*</strong>. <a href="https://doi.org/10.1093/pcp/pcag004" target="_blank" rel="noopener noreferrer">Living with the enemy: plants outsource their defense to fungal gatekeepers</a>. <strong><em>Plant and Cell Physiology</em></strong>, pcag004 (2026)。[述评文章]</span>
+                                </p>
+                                <div class="pub-meta">
+                                    <span data-lang="en">An invited PCP Budding Editor commentary written around host-mediated endophyte-pathogen competition and asymptomatic fungal colonization.</span>
+                                    <span data-lang="zh">这是一篇以宿主介导的内生真菌-病原竞争与无症状真菌定殖为主题的邀稿 Commentary。</span>
+                                </div>
+                                <div class="pub-link-line">
+                                    <a href="https://mp.weixin.qq.com/s/lnbH_C1dzEu26wRFkT6M2g" target="_blank" rel="noopener noreferrer"><span data-lang="en">Chinese version</span><span data-lang="zh">中文解读</span></a>
+                                </div>
+                                <div class="publication-note">
+                                    <p>
+                                        <span data-lang="en">This article comments on Kei Hiruma, Kuldanai Pathompitaknukul, Hiroyuki Tanaka, Yuki Iwaguchi, Shunsuke Miyashima, Nanami Kawamura, Atsushi Toyoda, Takehiko Itoh, and Yusuke Saijo, “Host-mediated endophyte-pathogen competition in roots enables asymptomatic fungal colonization in <em>Arabidopsis thaliana</em>,” <em>Plant and Cell Physiology</em>, 2025, pcaf126.</span>
+                                        <span data-lang="zh">这篇文章是对 Kei Hiruma、Kuldanai Pathompitaknukul、Hiroyuki Tanaka、Yuki Iwaguchi、Shunsuke Miyashima、Nanami Kawamura、Atsushi Toyoda、Takehiko Itoh 和 Yusuke Saijo 论文的 Commentary，主题是根部内生真菌与病原在宿主介导下的竞争如何帮助 <em>Arabidopsis thaliana</em> 实现无症状真菌定殖。</span>
+                                    </p>
+                                    <p>
+                                        <span data-lang="en">The manuscript went through repeated revisions and a winding path before publication. With Ken's support, it was eventually published under my sole authorship, which made it especially meaningful to me.</span>
+                                        <span data-lang="zh">这篇稿件经历了反复修改与颇为曲折的发表过程，最终在 Ken 的支持下以我唯一作者的身份发表，因此对我而言格外重要。</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="publication-card">
+                            <div class="publication-cover">
+                                <img src="pics/2025_CH.png" alt="Graphical abstract for the 2025 Crop Health commentary" loading="lazy">
+                            </div>
+                            <div>
+                                <div class="pub-year">2025</div>
+                                <p class="pub-title">
+                                    <span data-lang="en"><strong>Wang Z</strong>, Yin JK, Tsuda K*. <a href="https://link.springer.com/10.1007/s44297-025-00046-3" target="_blank" rel="noopener noreferrer">Harnessing <em>Aspergillus</em> and host M genes for sustainable phyllosphere microbiome engineering</a>. <strong><em>Crop Health</em></strong>, 3(1):6 (2025). [Commentary Article]</span>
+                                    <span data-lang="zh"><strong>Wang Z</strong>, Yin JK, Tsuda K*. <a href="https://link.springer.com/10.1007/s44297-025-00046-3" target="_blank" rel="noopener noreferrer">Harnessing <em>Aspergillus</em> and host M genes for sustainable phyllosphere microbiome engineering</a>. <strong><em>Crop Health</em></strong>, 3(1):6 (2025)。[述评文章]</span>
+                                </p>
+                                <div class="pub-meta">
+                                    <span data-lang="en">Originally developed from a Ph.D. course assignment, then refined into a Spotlight-style commentary and eventually published in <em>Crop Health</em>.</span>
+                                    <span data-lang="zh">这篇工作最初来源于博士课程作业，随后被打磨成 Spotlight 风格的评论文章，最终发表在 <em>Crop Health</em>。</span>
+                                </div>
+                                <div class="pub-link-line">
+                                    <a href="https://mp.weixin.qq.com/s/zPv7ltqwml9keb6qbUSSig" target="_blank" rel="noopener noreferrer"><span data-lang="en">Chinese version</span><span data-lang="zh">中文解读</span></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="publication-card">
+                            <div class="publication-cover">
+                                <img src="pics/2024_ARP.png" alt="Graphical abstract for the 2024 Annual Review of Phytopathology paper" loading="lazy">
+                            </div>
+                            <div>
+                                <div class="pub-year">2024</div>
+                                <p class="pub-title">
+                                    <span data-lang="en">Nakagami S#, <strong>Wang Z#</strong>, Han XW, Tsuda K*. <a href="https://www.annualreviews.org/content/journals/10.1146/annurev-phyto-010824-023359" target="_blank" rel="noopener noreferrer">Regulation of bacterial growth and behavior by host plant</a>. <strong><em>Annu. Rev. Phytopathol.</em></strong>, 62:12.1-12.28 (2024). [Review]</span>
+                                    <span data-lang="zh">Nakagami S#, <strong>Wang Z#</strong>, Han XW, Tsuda K*. <a href="https://www.annualreviews.org/content/journals/10.1146/annurev-phyto-010824-023359" target="_blank" rel="noopener noreferrer">Regulation of bacterial growth and behavior by host plant</a>. <strong><em>Annu. Rev. Phytopathol.</em></strong>, 62:12.1-12.28 (2024)。[综述]</span>
+                                </p>
+                                <div class="pub-meta">
+                                    <span data-lang="en">My first paper published as a co-first author, centered on how host plants regulate bacterial growth and behavior.</span>
+                                    <span data-lang="zh">这是我第一次以共同第一作者身份发表的论文，聚焦宿主植物如何调控细菌生长与行为。</span>
+                                </div>
+                                <div class="pub-link-line">
+                                    <a href="https://mp.weixin.qq.com/s/PlD93wUDQjNrvOR1R5VNVA" target="_blank" rel="noopener noreferrer"><span data-lang="en">Chinese version</span><span data-lang="zh">中文解读</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="publication-footnote">
+                        <span data-lang="en"><em>* corresponding author, # co-first author. See the full list on the Scientific CV page.</em></span>
+                        <span data-lang="zh"><em>* 通讯作者，# 共同第一作者。完整列表请见学术简历页面。</em></span>
+                    </div>
+                </section>
+
+                <section class="section-card glass reveal" id="skills">
+                    <div class="section-head">
+                        <div>
+                            <div class="section-kicker">Capabilities</div>
+                            <h2 class="section-title"><span data-lang="en">Skills and Workflow</span><span data-lang="zh">技能与工作流</span></h2>
+                        </div>
+                        <div class="section-desc">
+                            <span data-lang="en">Methods, computational tools, experimental systems, and communication skills.</span>
+                            <span data-lang="zh">涵盖研究方法、计算工具、实验体系与科研传播能力。</span>
+                        </div>
+                    </div>
+                    <div class="skills-grid">
+                        <article class="skill-card">
+                            <h3><span data-lang="en">Methods and Data</span><span data-lang="zh">方法与数据</span></h3>
+                            <ul>
+                                <li><span data-lang="en">Amplicon sequencing analysis, metagenomics, RNA-seq, scRNA-seq, and multi-omics interpretation</span><span data-lang="zh">扩增子测序分析、宏基因组、RNA-seq、scRNA-seq 与多组学数据解读</span></li>
+                                <li><span data-lang="en">Data visualization, figure preparation, and reproducible analysis workflows</span><span data-lang="zh">数据可视化、科研作图与可复现分析流程</span></li>
+                            </ul>
+                        </article>
+                        <article class="skill-card">
+                            <h3><span data-lang="en">Experimental Systems</span><span data-lang="zh">实验体系</span></h3>
+                            <ul>
+                                <li><span data-lang="en">Microbe isolation and culture, molecular cloning, vector construction, yeast transformation, qPCR, and microscopy</span><span data-lang="zh">微生物分离培养、分子克隆、载体构建、酵母转化、qPCR 与显微观察</span></li>
+                            </ul>
+                        </article>
+                        <article class="skill-card">
+                            <h3><span data-lang="en">Computational Tools</span><span data-lang="zh">计算工具</span></h3>
+                            <ul>
+                                <li><span data-lang="en">R, Shell, server management, Zotero-based literature management, and practical website design</span><span data-lang="zh">R、Shell、服务器管理、基于 Zotero 的文献管理与网站设计</span></li>
+                                <li><span data-lang="en">AI-assisted workflow for prototyping, analysis, writing, and scientific productivity</span><span data-lang="zh">使用 AI 辅助快速原型、数据分析、写作与科研效率提升</span></li>
+                            </ul>
+                        </article>
+                        <article class="skill-card">
+                            <h3><span data-lang="en">Communication</span><span data-lang="zh">科研传播</span></h3>
+                            <ul>
+                                <li><span data-lang="en">Scientific writing, visual abstract design, oral presentation, and public-facing research commentary</span><span data-lang="zh">学术写作、图形摘要设计、口头汇报与面向公众的科研评论</span></li>
+                                <li><span data-lang="en">Languages: Chinese (native) and English (professional working proficiency)</span><span data-lang="zh">语言：中文母语，英语具备专业工作能力</span></li>
+                            </ul>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="section-card glass reveal" id="beyond">
+                    <div class="section-head">
+                        <div>
+                            <div class="section-kicker">Beyond</div>
+                            <h2 class="section-title"><span data-lang="en">Life Outside the Lab</span><span data-lang="zh">科研之外</span></h2>
+                        </div>
+                        <div class="section-desc">
+                            <span data-lang="en">Activities, writing, and interests outside formal research output.</span>
+                            <span data-lang="zh">科研成果之外的个人兴趣、写作与日常表达。</span>
+                        </div>
+                    </div>
+                    <div class="life-grid">
+                        <div class="panel-block">
+                            <p>
+                                <span data-lang="en">I enjoy playing badminton, and I share some of those moments on <a href="https://space.bilibili.com/383663580" target="_blank" rel="noopener noreferrer">Bilibili</a>.</span>
+                                <span data-lang="zh">我很喜欢打羽毛球，也会在 <a href="https://space.bilibili.com/383663580" target="_blank" rel="noopener noreferrer">Bilibili</a> 记录一些打球片段。</span>
+                            </p>
+                            <p>
+                                <span data-lang="en">I also run a WeChat Official Account where I write about science, research life, and personal reflections in Chinese.</span>
+                                <span data-lang="zh">此外，我也在运营个人微信公众号，用中文分享科研、学术生活和一些日常思考。</span>
+                            </p>
+                            <ul class="life-list">
+                                <li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3OTU5NTQxMA==&amp;action=getalbum&amp;album_id=1974807553029046274&amp;scene=126&amp;sessionid=#wechat_redirect" target="_blank" rel="noopener noreferrer"><span data-lang="en">My Daily Life</span><span data-lang="zh">我的日常</span></a></li>
+                                <li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg3OTU5NTQxMA==&amp;action=getalbum&amp;album_id=2067014247435337730&amp;scene=126&amp;sessionid=#wechat_redirect" target="_blank" rel="noopener noreferrer"><span data-lang="en">Graduate Recommendation Experience Sharing</span><span data-lang="zh">保研经历分享</span></a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="series-card">
+                                <h3><span data-lang="en">Recommended Reads</span><span data-lang="zh">推荐阅读</span></h3>
+                                <ul class="series-list">
+                                    <li><a href="https://mp.weixin.qq.com/s/f-5QpBksL5cspBsqTTwIPQ" target="_blank" rel="noopener noreferrer"><span data-lang="en">Do you also want to become an excellent scientist?</span><span data-lang="zh">你也想成为优秀的科学家吗？</span></a></li>
+                                    <li><a href="https://mp.weixin.qq.com/s/Jx9nq_h6b_IqsXf-k6YWlw" target="_blank" rel="noopener noreferrer"><span data-lang="en">What can you learn after reviewing two articles aiming for top-tier journals?</span><span data-lang="zh">审完两篇想要发表在顶刊上的文章后，能学到什么？</span></a></li>
+                                    <li><a href="https://mp.weixin.qq.com/s/jmGjxHJRlGBcU1aYInw3gg" target="_blank" rel="noopener noreferrer"><span data-lang="en">Enjoying academic networking</span><span data-lang="zh">享受学术社交</span></a></li>
+                                    <li><a href="https://mp.weixin.qq.com/s/SvwgOQzgdbppkqNlu1TSPg" target="_blank" rel="noopener noreferrer"><span data-lang="en">A few stories from my internship at Sun Yat-sen University</span><span data-lang="zh">中山实习二三事</span></a></li>
+                                    <li><a href="https://mp.weixin.qq.com/s/gs504x2daL7ijpWSY0pwYw" target="_blank" rel="noopener noreferrer"><span data-lang="en">The ideal mentor in my heart</span><span data-lang="zh">我心中的好导师</span></a></li>
+                                </ul>
+                            </div>
+                            <div class="series-card">
+                                <h3><span data-lang="en">Personal Writing</span><span data-lang="zh">个人写作</span></h3>
+                                <p>
+                                    <span data-lang="en">These writings reflect my interests in research life, academic communication, and personal observation beyond journal articles.</span>
+                                    <span data-lang="zh">这些内容主要记录我在科研生活、学术传播与日常观察中的一些思考，作为论文之外的个人表达。</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section-card glass reveal" id="cv">
+                    <div class="section-head">
+                        <div>
+                            <div class="section-kicker">Scientific CV</div>
+                            <h2 class="section-title"><span data-lang="en">Full Academic Record</span><span data-lang="zh">完整学术履历</span></h2>
+                        </div>
+                        <div class="section-desc">
+                            <span data-lang="en">Full academic record including education, research experience, publications, honors, service, and presentations.</span>
+                            <span data-lang="zh">完整学术履历，包括教育背景、科研经历、论文发表、荣誉奖励、学术服务与会议报告。</span>
+                        </div>
+                    </div>
+                    <div class="cv-grid">
+                        <div class="panel-block">
+                            <p>
+                                <span data-lang="en">I keep my full academic record on a separate Scientific CV page, including education, research experience, publications, awards, academic service, and conference presentations.</span>
+                                <span data-lang="zh">我把完整的学术履历放在单独的学术简历页面中，包括教育背景、科研经历、论文发表、奖励荣誉、学术服务和会议报告。</span>
+                            </p>
+                            <div class="cv-actions">
+                                <a class="cta-primary" href="cv.html"><span data-lang="en">Open Scientific CV</span><span data-lang="zh">查看学术简历</span></a>
+                                <a class="cta-secondary" href="#top"><span data-lang="en">Back to top</span><span data-lang="zh">返回顶部</span></a>
+                            </div>
+                        </div>
+                        <div class="panel-block">
+                            <p>
+                                <span data-lang="en">For complete details, please visit the dedicated Scientific CV page.</span>
+                                <span data-lang="zh">如需查看完整信息，请进入单独的学术简历页面。</span>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="footer glass">
+            <div>
+                <span data-lang="en">© 2026 Zhe Wang | Homepage</span>
+                <span data-lang="zh">© 2026 汪哲 | 个人主页</span>
+            </div>
+            <div>
+                <span data-lang="en">Last updated: March 20, 2026</span>
+                <span data-lang="zh">最后更新：2026年3月20日</span>
+            </div>
         </footer>
     </div>
 
-    <!-- Back to Top Button -->
-    <a href="#top" class="back-to-top" id="backToTop" aria-label="Back to top">
-        ↑
-    </a>
+    <a href="#top" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
 
     <script>
         (function () {
             const root = document.documentElement;
-            const storageKey = 'preferred-language';
-            const btnEn = document.getElementById('lang-en');
-            const btnZh = document.getElementById('lang-zh');
+            const storageKey = "preferred-language";
+            const btnEn = document.getElementById("lang-en");
+            const btnZh = document.getElementById("lang-zh");
+            const backToTopBtn = document.getElementById("backToTop");
+            const revealEls = document.querySelectorAll(".reveal");
 
             function setLanguage(lang) {
-                root.setAttribute('data-language', lang);
-                root.setAttribute('lang', lang === 'zh' ? 'zh-CN' : 'en');
+                root.setAttribute("data-language", lang);
+                root.setAttribute("lang", lang === "zh" ? "zh-CN" : "en");
                 localStorage.setItem(storageKey, lang);
-                if (btnEn && btnZh) {
-                    btnEn.classList.toggle('active', lang === 'en');
-                    btnZh.classList.toggle('active', lang === 'zh');
-                }
+                btnEn && btnEn.classList.toggle("active", lang === "en");
+                btnZh && btnZh.classList.toggle("active", lang === "zh");
             }
 
             const saved = localStorage.getItem(storageKey);
-            setLanguage(saved === 'zh' ? 'zh' : 'en');
+            setLanguage(saved === "zh" ? "zh" : "en");
 
-            btnEn && btnEn.addEventListener('click', function () { setLanguage('en'); });
-            btnZh && btnZh.addEventListener('click', function () { setLanguage('zh'); });
+            btnEn && btnEn.addEventListener("click", function () {
+                setLanguage("en");
+            });
 
-            // Back to top button visibility toggle
-            const backToTopBtn = document.getElementById('backToTop');
+            btnZh && btnZh.addEventListener("click", function () {
+                setLanguage("zh");
+            });
+
             if (backToTopBtn) {
-                window.addEventListener('scroll', function () {
-                    if (window.scrollY > 300) {
-                        backToTopBtn.classList.add('show');
+                window.addEventListener("scroll", function () {
+                    if (window.scrollY > 400) {
+                        backToTopBtn.classList.add("show");
                     } else {
-                        backToTopBtn.classList.remove('show');
+                        backToTopBtn.classList.remove("show");
                     }
+                });
+            }
+
+            if ("IntersectionObserver" in window) {
+                const observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("is-visible");
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.12
+                });
+
+                revealEls.forEach(function (el) {
+                    observer.observe(el);
+                });
+            } else {
+                revealEls.forEach(function (el) {
+                    el.classList.add("is-visible");
                 });
             }
         })();

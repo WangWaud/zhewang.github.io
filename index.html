@@ -19,8 +19,10 @@
     <link rel="icon" type="image/jpeg" href="pics/Me.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Sora:wght@400;500;600;700&amp;display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Sora:wght@400;500;600;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Sora:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    </noscript>
     <style>
         :root {
             --bg: #edf4f7;
@@ -70,7 +72,7 @@
         body::before,
         body::after {
             content: "";
-            position: fixed;
+            position: absolute;
             inset: 0;
             pointer-events: none;
             z-index: -2;
@@ -81,12 +83,11 @@
                 linear-gradient(rgba(54, 88, 111, 0.05) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(54, 88, 111, 0.05) 1px, transparent 1px);
             background-size: 36px 36px;
-            mask-image: radial-gradient(circle at center, black 45%, transparent 92%);
-            opacity: 0.24;
+            opacity: 0.18;
         }
 
         body::after {
-            background: radial-gradient(circle at center, transparent 0%, rgba(228, 239, 246, 0.28) 75%, rgba(220, 234, 242, 0.78) 100%);
+            background: radial-gradient(circle at center, transparent 0%, rgba(228, 239, 246, 0.2) 78%, rgba(220, 234, 242, 0.62) 100%);
             z-index: -1;
         }
 
@@ -132,8 +133,8 @@
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(247, 251, 253, 0.68));
             border: 1px solid var(--line);
             box-shadow: var(--shadow-soft);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
 
         .topbar {
@@ -234,7 +235,7 @@
             color: var(--text-faint);
             cursor: pointer;
             white-space: nowrap;
-            transition: all var(--transition);
+            transition: background-color var(--transition), border-color var(--transition), color var(--transition), box-shadow var(--transition);
         }
 
         .lang-switch button.active,
@@ -416,6 +417,8 @@
                 radial-gradient(circle at top right, rgba(123, 204, 234, 0.18), transparent 38%);
             border: 1px solid var(--line-strong);
             box-shadow: var(--shadow);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
         }
 
         .profile-top {
@@ -536,6 +539,8 @@
         .metric-card {
             padding: 22px;
             border-radius: 24px;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
         }
 
         .metric-value {
@@ -560,6 +565,8 @@
         .section-card {
             padding: 30px;
             border-radius: 30px;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
         }
 
         .section-head {
@@ -800,7 +807,7 @@
             min-height: 48px;
             padding: 0 18px;
             border-radius: 999px;
-            transition: all var(--transition);
+            transition: background-color var(--transition), border-color var(--transition), color var(--transition), box-shadow var(--transition);
         }
 
         .cta-primary {
@@ -831,6 +838,8 @@
             justify-content: space-between;
             gap: 14px;
             flex-wrap: wrap;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
         }
 
         .back-to-top {
@@ -848,7 +857,7 @@
             opacity: 0;
             visibility: hidden;
             transform: translateY(10px);
-            transition: all var(--transition);
+            transition: opacity var(--transition), visibility var(--transition), transform var(--transition), box-shadow var(--transition), background-color var(--transition);
             z-index: 30;
         }
 
@@ -867,6 +876,31 @@
         .reveal.is-visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .reveal,
+            .reveal.is-visible,
+            .hero-button,
+            .hero-button-ghost,
+            .cta-primary,
+            .cta-secondary,
+            .back-to-top,
+            .topic-card,
+            .skill-card,
+            .publication-card,
+            .profile-link {
+                transition: none;
+                transform: none;
+            }
+
+            .reveal {
+                opacity: 1;
+            }
         }
 
         @media (max-width: 1080px) {
@@ -1070,7 +1104,7 @@
                     <div>
                         <div class="profile-top">
                             <div class="avatar-wrap">
-                                <img src="pics/Me.jpg" alt="Portrait of Zhe Wang" class="avatar">
+                                <img src="pics/optimized/Me.jpg" alt="Portrait of Zhe Wang" class="avatar" width="305" height="320" decoding="async" fetchpriority="high">
                             </div>
                             <div class="profile-meta">
                                 <h2>Zhe Wang</h2>
@@ -1239,7 +1273,7 @@
                     <div class="publication-stack">
                         <article class="publication-card">
                             <div class="publication-cover">
-                                <img src="pics/2026_PCP.png" alt="Graphical abstract for the 2026 Plant and Cell Physiology commentary" loading="lazy">
+                                <img src="pics/optimized/2026_PCP.png" alt="Graphical abstract for the 2026 Plant and Cell Physiology commentary" loading="lazy" decoding="async" width="760" height="960">
                             </div>
                             <div>
                                 <div class="pub-year">2026</div>
@@ -1269,7 +1303,7 @@
 
                         <article class="publication-card">
                             <div class="publication-cover">
-                                <img src="pics/2025_CH.png" alt="Graphical abstract for the 2025 Crop Health commentary" loading="lazy">
+                                <img src="pics/optimized/2025_CH.png" alt="Graphical abstract for the 2025 Crop Health commentary" loading="lazy" decoding="async" width="727" height="960">
                             </div>
                             <div>
                                 <div class="pub-year">2025</div>
@@ -1289,7 +1323,7 @@
 
                         <article class="publication-card">
                             <div class="publication-cover">
-                                <img src="pics/2024_ARP.png" alt="Graphical abstract for the 2024 Annual Review of Phytopathology paper" loading="lazy">
+                                <img src="pics/optimized/2024_ARP.png" alt="Graphical abstract for the 2024 Annual Review of Phytopathology paper" loading="lazy" decoding="async" width="832" height="960">
                             </div>
                             <div>
                                 <div class="pub-year">2024</div>
@@ -1479,13 +1513,17 @@
             });
 
             if (backToTopBtn) {
-                window.addEventListener("scroll", function () {
-                    if (window.scrollY > 400) {
-                        backToTopBtn.classList.add("show");
-                    } else {
-                        backToTopBtn.classList.remove("show");
+                let backToTopVisible = false;
+                const syncBackToTop = function () {
+                    const shouldShow = window.scrollY > 400;
+                    if (shouldShow !== backToTopVisible) {
+                        backToTopVisible = shouldShow;
+                        backToTopBtn.classList.toggle("show", shouldShow);
                     }
-                });
+                };
+
+                syncBackToTop();
+                window.addEventListener("scroll", syncBackToTop, { passive: true });
             }
 
             if ("IntersectionObserver" in window) {

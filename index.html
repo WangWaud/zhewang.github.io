@@ -358,6 +358,72 @@
         .capability h3 { margin: 48px 0 14px; font-family: var(--display); font-size: 1.55rem; line-height: 1.05; }
         .capability p { margin: 0; color: var(--muted); font-size: .88rem; }
 
+        .personality-section { background: var(--surface-soft); }
+        .personality-grid {
+            display: grid;
+            grid-template-columns: minmax(290px, .78fr) minmax(0, 1.22fr);
+            border: 1px solid var(--forest);
+            background: var(--surface);
+        }
+        .personality-identity {
+            display: flex;
+            flex-direction: column;
+            min-height: 520px;
+            padding: clamp(28px, 4vw, 48px);
+            background: var(--forest);
+            color: white;
+        }
+        .personality-kicker {
+            color: var(--pollen);
+            font-family: var(--utility);
+            font-size: .69rem;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+        .personality-type {
+            margin: 28px 0 0;
+            font-family: var(--display);
+            font-size: clamp(4.8rem, 8.6vw, 8.8rem);
+            font-weight: 800;
+            letter-spacing: -.075em;
+            line-height: .82;
+        }
+        .personality-type span { color: var(--pollen); }
+        .personality-name { margin-top: 22px; font-family: var(--display); font-size: 1.55rem; font-weight: 800; }
+        .personality-summary { max-width: 390px; margin: 18px 0 0; color: #d6e2dc; font-size: .92rem; }
+        .personality-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            margin: auto -1px -1px;
+            padding-top: 40px;
+        }
+        .personality-meta div { padding: 16px 18px; border-top: 1px solid rgba(255,255,255,.24); }
+        .personality-meta div + div { border-left: 1px solid rgba(255,255,255,.24); }
+        .personality-meta dt { color: #a9c1b5; font-family: var(--utility); font-size: .63rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+        .personality-meta dd { margin: 5px 0 0; color: white; font-size: .84rem; font-weight: 800; }
+        .personality-traits { padding: clamp(28px, 5vw, 58px); }
+        .trait-axis { display: flex; justify-content: space-between; margin-bottom: 14px; color: var(--muted); font-family: var(--utility); font-size: .62rem; letter-spacing: .08em; }
+        .trait-list { display: grid; gap: 24px; }
+        .trait-row { display: grid; grid-template-columns: 150px minmax(0, 1fr) 48px; align-items: center; gap: 16px; }
+        .trait-label { color: var(--forest); font-size: .82rem; font-weight: 800; }
+        .trait-track {
+            position: relative;
+            height: 13px;
+            border: 1px solid var(--line);
+            background: var(--paper);
+            overflow: hidden;
+        }
+        .trait-track::after { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; border-left: 1px solid rgba(16,34,27,.22); }
+        .trait-fill { width: var(--value); height: 100%; background: var(--leaf); }
+        .trait-row:nth-child(4) .trait-fill,
+        .trait-row:nth-child(5) .trait-fill { background: var(--forest); }
+        .trait-value { color: var(--pathogen); font-family: var(--utility); font-size: .79rem; font-weight: 800; text-align: right; }
+        .personality-source { display: flex; justify-content: space-between; align-items: flex-end; gap: 28px; margin-top: 38px; padding-top: 22px; border-top: 1px solid var(--line); }
+        .personality-source p { max-width: 520px; margin: 0; color: var(--muted); font-size: .76rem; }
+        .personality-source a { flex: 0 0 auto; border-bottom: 1px solid var(--forest); color: var(--forest); font-family: var(--utility); font-size: .69rem; font-weight: 800; text-transform: uppercase; }
+
         .writing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; border: 1px solid var(--line); background: var(--line); }
         .writing-panel { padding: clamp(26px, 4vw, 46px); background: var(--surface); }
         .writing-panel h3 { margin: 0 0 16px; font-family: var(--display); font-size: 2rem; line-height: 1; }
@@ -393,6 +459,8 @@
             .publication { grid-template-columns: 150px 1fr; }
             .publication-action { justify-self: start; margin-top: 0; }
             .capability-grid { grid-template-columns: repeat(2, 1fr); }
+            .personality-grid { grid-template-columns: 1fr; }
+            .personality-identity { min-height: 440px; }
         }
         @media (max-width: 660px) {
             html { scroll-padding-top: 126px; }
@@ -421,6 +489,12 @@
             .capability-grid { grid-template-columns: 1fr; }
             .capability { min-height: auto; }
             .capability h3 { margin-top: 28px; }
+            .personality-identity { min-height: 410px; }
+            .personality-type { font-size: clamp(4.2rem, 25vw, 6.2rem); }
+            .trait-axis { display: none; }
+            .trait-row { grid-template-columns: 1fr 48px; gap: 7px 12px; }
+            .trait-track { grid-column: 1 / -1; grid-row: 2; }
+            .personality-source { align-items: flex-start; flex-direction: column; gap: 16px; }
             .writing-grid { grid-template-columns: 1fr; }
             .contact { grid-template-columns: 1fr; align-items: start; }
             .contact-actions { width: 100%; }
@@ -449,6 +523,7 @@
                 <a href="#research"><span data-lang="en">Research</span><span data-lang="zh">研究</span></a>
                 <a href="#work"><span data-lang="en">Selected work</span><span data-lang="zh">代表成果</span></a>
                 <a href="#capabilities"><span data-lang="en">Methods</span><span data-lang="zh">方法</span></a>
+                <a href="#personality"><span data-lang="en">Profile</span><span data-lang="zh">人格</span></a>
                 <a href="#writing"><span data-lang="en">Writing</span><span data-lang="zh">写作</span></a>
                 <a href="cv.html">CV</a>
             </nav>
@@ -609,6 +684,61 @@
             </div>
         </section>
 
+        <section class="section personality-section" id="personality">
+            <div class="shell">
+                <div class="section-heading reveal">
+                    <div><div class="section-label">Personality profile</div><h2><span data-lang="en">How I tend to operate</span><span data-lang="zh">我的行动方式</span></h2></div>
+                    <p class="section-lead"><span data-lang="en">A snapshot of the working style behind my research: outward-looking, analytical, organized, and decisive.</span><span data-lang="zh">这是我科研工作方式的一张侧写：外向、理性、重视规划，也倾向于果断推进。</span></p>
+                </div>
+                <div class="personality-grid reveal">
+                    <article class="personality-identity">
+                        <div class="personality-kicker">16Personalities · MBTI</div>
+                        <div class="personality-type">ENTJ<span>-A</span></div>
+                        <div class="personality-name"><span data-lang="en">Commander</span><span data-lang="zh">指挥官</span></div>
+                        <p class="personality-summary"><span data-lang="en">I am energized by ambitious questions, clear decisions, and turning complex work into an executable plan.</span><span data-lang="zh">面对有挑战的问题，我习惯快速梳理结构、明确决策，并把复杂工作转化为可执行的计划。</span></p>
+                        <dl class="personality-meta">
+                            <div><dt><span data-lang="en">Role</span><span data-lang="zh">角色</span></dt><dd><span data-lang="en">Analyst</span><span data-lang="zh">分析家</span></dd></div>
+                            <div><dt><span data-lang="en">Strategy</span><span data-lang="zh">策略</span></dt><dd><span data-lang="en">People Mastery</span><span data-lang="zh">人际掌控</span></dd></div>
+                        </dl>
+                    </article>
+                    <div class="personality-traits">
+                        <div class="trait-axis" aria-hidden="true"><span>0</span><span><span data-lang="en">Trait strength</span><span data-lang="zh">特征强度</span></span><span>100</span></div>
+                        <div class="trait-list">
+                            <div class="trait-row">
+                                <div class="trait-label"><span data-lang="en">Extraverted</span><span data-lang="zh">外向</span></div>
+                                <div class="trait-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="92" aria-label="Extraverted: 92 percent" data-aria-en="Extraverted: 92 percent" data-aria-zh="外向：92%"><div class="trait-fill" style="--value: 92%"></div></div>
+                                <div class="trait-value">92%</div>
+                            </div>
+                            <div class="trait-row">
+                                <div class="trait-label"><span data-lang="en">Intuitive</span><span data-lang="zh">天马行空</span></div>
+                                <div class="trait-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="56" aria-label="Intuitive: 56 percent" data-aria-en="Intuitive: 56 percent" data-aria-zh="天马行空：56%"><div class="trait-fill" style="--value: 56%"></div></div>
+                                <div class="trait-value">56%</div>
+                            </div>
+                            <div class="trait-row">
+                                <div class="trait-label"><span data-lang="en">Thinking</span><span data-lang="zh">理性思考</span></div>
+                                <div class="trait-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="66" aria-label="Thinking: 66 percent" data-aria-en="Thinking: 66 percent" data-aria-zh="理性思考：66%"><div class="trait-fill" style="--value: 66%"></div></div>
+                                <div class="trait-value">66%</div>
+                            </div>
+                            <div class="trait-row">
+                                <div class="trait-label"><span data-lang="en">Judging</span><span data-lang="zh">运筹帷幄</span></div>
+                                <div class="trait-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90" aria-label="Judging: 90 percent" data-aria-en="Judging: 90 percent" data-aria-zh="运筹帷幄：90%"><div class="trait-fill" style="--value: 90%"></div></div>
+                                <div class="trait-value">90%</div>
+                            </div>
+                            <div class="trait-row">
+                                <div class="trait-label"><span data-lang="en">Assertive</span><span data-lang="zh">自信果断</span></div>
+                                <div class="trait-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="88" aria-label="Assertive: 88 percent" data-aria-en="Assertive: 88 percent" data-aria-zh="自信果断：88%"><div class="trait-fill" style="--value: 88%"></div></div>
+                                <div class="trait-value">88%</div>
+                            </div>
+                        </div>
+                        <div class="personality-source">
+                            <p><span data-lang="en">Self-reported 16Personalities result. Personality tests describe tendencies rather than fixed limits.</span><span data-lang="zh">以上为本人提供的 16Personalities 测试结果。人格测试呈现的是倾向，而非固定边界。</span></p>
+                            <a href="https://www.16personalities.com/ch/entj-%E4%BA%BA%E6%A0%BC" target="_blank" rel="noopener noreferrer"><span data-lang="en">About ENTJ ↗</span><span data-lang="zh">了解 ENTJ ↗</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="section" id="writing">
             <div class="shell">
                 <div class="section-heading reveal">
@@ -652,7 +782,7 @@
         <div class="shell footer-inner">
             <span>© 2026 Zhe Wang · 汪哲</span>
             <span><span data-lang="en">Plant pathology · Microbiome · Scientific communication</span><span data-lang="zh">植物病理 · 微生物组 · 科研传播</span></span>
-            <span><span data-lang="en">Updated July 10, 2026</span><span data-lang="zh">更新于 2026 年 7 月 10 日</span></span>
+            <span><span data-lang="en">Updated August 26, 2026</span><span data-lang="zh">更新于 2026 年 8 月 26 日</span></span>
         </div>
     </footer>
 
